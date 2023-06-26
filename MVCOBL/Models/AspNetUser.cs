@@ -10,6 +10,8 @@ namespace MVCOBL.Models
             AspNetUserClaims = new HashSet<AspNetUserClaim>();
             AspNetUserLogins = new HashSet<AspNetUserLogin>();
             AspNetUserTokens = new HashSet<AspNetUserToken>();
+            Compras = new HashSet<Compra>();
+            Venta = new HashSet<Ventum>();
             Roles = new HashSet<AspNetRole>();
         }
 
@@ -28,10 +30,14 @@ namespace MVCOBL.Models
         public DateTimeOffset? LockoutEnd { get; set; }
         public bool LockoutEnabled { get; set; }
         public int AccessFailedCount { get; set; }
+        public int? IdTienda { get; set; }
 
+        public virtual Tiendum? IdTiendaNavigation { get; set; }
         public virtual ICollection<AspNetUserClaim> AspNetUserClaims { get; set; }
         public virtual ICollection<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual ICollection<AspNetUserToken> AspNetUserTokens { get; set; }
+        public virtual ICollection<Compra> Compras { get; set; }
+        public virtual ICollection<Ventum> Venta { get; set; }
 
         public virtual ICollection<AspNetRole> Roles { get; set; }
     }

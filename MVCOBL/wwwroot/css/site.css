@@ -1,4 +1,4 @@
-html {
+/*html {
   font-size: 14px;
 }
 
@@ -15,4 +15,104 @@ html {
 
 body {
   margin-bottom: 60px;
+}*/
+
+html {
+    font-size: 14px;
 }
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /*margin-bottom: 60px;*/
+    /*display: flex;*/
+    /* min-height: 100vh;*/
+    /*margin: 0;*/
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    /*gap: 30px;*/
+}
+
+/*------------------------------------------------------------------*/
+:root {
+    --estado-buda: 0.3s;
+    --cada-item: 18px;
+    --cantidad-items: 0;
+}
+
+/*
+body {
+    display: flex;
+    min-height: 80vh;
+    margin: 0;
+    font-family: Arial;
+    font-size: 16px;
+    gap: 30px;
+}*/
+
+/*header {
+    width: 100px;
+    background: #1E1E1E;
+}*/
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    line-height: 26px;
+}
+
+    nav ul li {
+        /*border-bottom: 1px solid #1E1E1E;*/
+    }
+
+        nav ul li a:hover {
+            background-color: lightgray;
+        }
+
+    nav ul a {
+        box-sizing: border-box;
+        /*color: white;*/
+        background-color: white;
+        font-weight: 700;
+        display: block;
+        width: 100%;
+        padding: 6px 10px;
+        text-decoration: none;
+    }
+
+
+    nav ul ul {
+        height: 0px;
+        overflow: hidden;
+        transition: var(--estado-buda);
+        counter-reset: items;
+    }
+
+        nav ul ul li {
+            counter-increment: items;
+        }
+
+
+    nav ul li:hover ul {
+        height: calc( var(--cantidad-items) * var(--cada-item) );
+        /* background: white;
+        background: white;*/
+
+        height: 100%;
+        /*max-height: calc( counter(items) * var(--cada-item) );*/
+    }
+
+
+    nav ul ul a {
+        background-color: ghostwhite;
+    }

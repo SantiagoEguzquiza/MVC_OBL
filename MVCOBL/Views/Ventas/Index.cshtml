@@ -1,0 +1,83 @@
+﻿@model IEnumerable<MVCOBL.Models.Ventum>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Crear</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Codigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ValorCodigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CantidadProducto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CantidadTotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalCosto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaRegistro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdClienteNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdTiendaNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdUsuarioNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorCodigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CantidadProducto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CantidadTotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalCosto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaRegistro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdClienteNavigation.IdCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdTiendaNavigation.IdTienda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdUsuarioNavigation.Id)
+            </td>
+            <td>
+                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.IdVenta">Edit</a> |
+                    <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.IdVenta">Details</a> |
+                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.IdVenta">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
