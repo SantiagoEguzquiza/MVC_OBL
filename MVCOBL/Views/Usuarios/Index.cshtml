@@ -4,24 +4,26 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create" class="btn btn-primary">Crear</a>
-</p>
+<h1>Usuarios</h1>
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Crear</a>
+    </p>
+}
 <table class="table">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.UserName)
             </th>
-            <th>
+           @* <th>
                 @Html.DisplayNameFor(model => model.NormalizedUserName)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Email)
             </th>
-            <th>
+    @*        <th>
                 @Html.DisplayNameFor(model => model.NormalizedEmail)
             </th>
             <th>
@@ -53,7 +55,7 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.AccessFailedCount)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.IdTiendaNavigation)
             </th>
@@ -66,13 +68,13 @@
             <td>
                 @Html.DisplayFor(modelItem => item.UserName)
             </td>
-            <td>
+           @* <td>
                 @Html.DisplayFor(modelItem => item.NormalizedUserName)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
-            <td>
+@*            <td>
                 @Html.DisplayFor(modelItem => item.NormalizedEmail)
             </td>
             <td>
@@ -104,14 +106,22 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.AccessFailedCount)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.IdTiendaNavigation.IdTienda)
             </td>
             <td>
-                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id">Delete</a>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.Id">Edit</a>
+                    }
+                    
+                    <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.Id">Details</a> 
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id">Delete</a>
+                    }
+
             </td>
         </tr>
 }

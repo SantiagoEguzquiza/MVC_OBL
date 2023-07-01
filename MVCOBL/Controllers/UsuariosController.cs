@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MVCOBL.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MVCOBL.Controllers
 {
@@ -19,14 +20,16 @@ namespace MVCOBL.Controllers
         }
 
         // GET: Usuarios
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             var mVCOBLContext = _context.AspNetUsers.Include(a => a.IdTiendaNavigation);
             return View(await mVCOBLContext.ToListAsync());
         }
 
-        // GET: Usuarios/Details/5
-        public async Task<IActionResult> Details(string id)
+		// GET: Usuarios/Details/5
+		[Authorize]
+		public async Task<IActionResult> Details(string id)
         {
             if (id == null || _context.AspNetUsers == null)
             {
@@ -44,8 +47,9 @@ namespace MVCOBL.Controllers
             return View(aspNetUser);
         }
 
-        // GET: Usuarios/Create
-        public IActionResult Create()
+		// GET: Usuarios/Create
+		[Authorize(Roles = "Admin")]
+		public IActionResult Create()
         {
             ViewData["IdTienda"] = new SelectList(_context.Tienda, "IdTienda", "IdTienda");
             return View();
@@ -56,7 +60,8 @@ namespace MVCOBL.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,UserName,NormalizedUserName,Email,NormalizedEmail,EmailConfirmed,PasswordHash,SecurityStamp,ConcurrencyStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEnd,LockoutEnabled,AccessFailedCount,IdTienda")] AspNetUser aspNetUser)
+		[Authorize(Roles = "Administrador")]
+		public async Task<IActionResult> Create([Bind("Id,UserName,NormalizedUserName,Email,NormalizedEmail,EmailConfirmed,PasswordHash,SecurityStamp,ConcurrencyStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEnd,LockoutEnabled,AccessFailedCount,IdTienda")] AspNetUser aspNetUser)
         {
             if (ModelState.IsValid)
             {
@@ -68,8 +73,9 @@ namespace MVCOBL.Controllers
             return View(aspNetUser);
         }
 
-        // GET: Usuarios/Edit/5
-        public async Task<IActionResult> Edit(string id)
+		// GET: Usuarios/Edit/5
+		[Authorize(Roles = "Admin")]
+		public async Task<IActionResult> Edit(string id)
         {
             if (id == null || _context.AspNetUsers == null)
             {
@@ -90,7 +96,8 @@ namespace MVCOBL.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,UserName,NormalizedUserName,Email,NormalizedEmail,EmailConfirmed,PasswordHash,SecurityStamp,ConcurrencyStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEnd,LockoutEnabled,AccessFailedCount,IdTienda")] AspNetUser aspNetUser)
+		[Authorize(Roles = "Admin")]
+		public async Task<IActionResult> Edit(string id, [Bind("Id,UserName,NormalizedUserName,Email,NormalizedEmail,EmailConfirmed,PasswordHash,SecurityStamp,ConcurrencyStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEnd,LockoutEnabled,AccessFailedCount,IdTienda")] AspNetUser aspNetUser)
         {
             if (id != aspNetUser.Id)
             {
@@ -121,8 +128,9 @@ namespace MVCOBL.Controllers
             return View(aspNetUser);
         }
 
-        // GET: Usuarios/Delete/5
-        public async Task<IActionResult> Delete(string id)
+		// GET: Usuarios/Delete/5
+		[Authorize(Roles = "Admin")]
+		public async Task<IActionResult> Delete(string id)
         {
             if (id == null || _context.AspNetUsers == null)
             {
@@ -143,7 +151,8 @@ namespace MVCOBL.Controllers
         // POST: Usuarios/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
+		[Authorize(Roles = "Admin")]
+		public async Task<IActionResult> DeleteConfirmed(string id)
         {
             if (_context.AspNetUsers == null)
             {

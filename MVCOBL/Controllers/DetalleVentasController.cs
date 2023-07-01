@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MVCOBL.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MVCOBL.Controllers
 {
@@ -19,6 +20,7 @@ namespace MVCOBL.Controllers
         }
 
         // GET: DetalleVentas
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             var mVCOBLContext = _context.DetalleVenta.Include(d => d.IdCotizacionNavigation).Include(d => d.IdProductoNavigation).Include(d => d.IdVentaNavigation);
@@ -26,6 +28,7 @@ namespace MVCOBL.Controllers
         }
 
         // GET: DetalleVentas/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.DetalleVenta == null)
@@ -46,8 +49,9 @@ namespace MVCOBL.Controllers
             return View(detalleVentum);
         }
 
-        // GET: DetalleVentas/Create
-        public IActionResult Create()
+		// GET: DetalleVentas/Create
+		[Authorize(Roles = "Admin, Empleado")]
+		public IActionResult Create()
         {
             ViewData["IdCotizacion"] = new SelectList(_context.Cotizaciones, "Id", "Id");
             ViewData["IdProducto"] = new SelectList(_context.Productos, "IdProducto", "IdProducto");
@@ -60,7 +64,8 @@ namespace MVCOBL.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdDetalleVenta,IdVenta,IdProducto,Cantidad,PrecioUnidad,ImporteTotal,FechaRegistro,IdCotizacion")] DetalleVentum detalleVentum)
+		[Authorize(Roles = "Admin, Empleado")]
+		public async Task<IActionResult> Create([Bind("IdDetalleVenta,IdVenta,IdProducto,Cantidad,PrecioUnidad,ImporteTotal,FechaRegistro,IdCotizacion")] DetalleVentum detalleVentum)
         {
             if (ModelState.IsValid)
             {
@@ -74,8 +79,9 @@ namespace MVCOBL.Controllers
             return View(detalleVentum);
         }
 
-        // GET: DetalleVentas/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+		// GET: DetalleVentas/Edit/5
+		[Authorize(Roles = "Admin, Empleado")]
+		public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.DetalleVenta == null)
             {
@@ -98,7 +104,8 @@ namespace MVCOBL.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdDetalleVenta,IdVenta,IdProducto,Cantidad,PrecioUnidad,ImporteTotal,FechaRegistro,IdCotizacion")] DetalleVentum detalleVentum)
+		[Authorize(Roles = "Admin, Empleado")]
+		public async Task<IActionResult> Edit(int id, [Bind("IdDetalleVenta,IdVenta,IdProducto,Cantidad,PrecioUnidad,ImporteTotal,FechaRegistro,IdCotizacion")] DetalleVentum detalleVentum)
         {
             if (id != detalleVentum.IdDetalleVenta)
             {
@@ -131,8 +138,9 @@ namespace MVCOBL.Controllers
             return View(detalleVentum);
         }
 
-        // GET: DetalleVentas/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+		// GET: DetalleVentas/Delete/5
+		[Authorize(Roles = "Admin")]
+		public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.DetalleVenta == null)
             {
@@ -155,7 +163,8 @@ namespace MVCOBL.Controllers
         // POST: DetalleVentas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+		[Authorize(Roles = "Admin")]
+		public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.DetalleVenta == null)
             {

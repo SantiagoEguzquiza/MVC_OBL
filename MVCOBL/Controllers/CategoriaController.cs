@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MVCOBL.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MVCOBL.Controllers
 {
@@ -19,6 +20,7 @@ namespace MVCOBL.Controllers
         }
 
         // GET: Categoria
+        [Authorize]
         public async Task<IActionResult> Index()
         {
               return _context.Categoria != null ? 
@@ -27,6 +29,7 @@ namespace MVCOBL.Controllers
         }
 
         // GET: Categoria/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Categoria == null)
@@ -44,8 +47,9 @@ namespace MVCOBL.Controllers
             return View(categorium);
         }
 
-        // GET: Categoria/Create
-        public IActionResult Create()
+		// GET: Categoria/Create
+		[Authorize(Roles = "Admin")]
+		public IActionResult Create()
         {
             return View();
         }
@@ -55,7 +59,8 @@ namespace MVCOBL.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdCategoria,Descripcion")] Categorium categorium)
+		[Authorize(Roles = "Admin")]
+		public async Task<IActionResult> Create([Bind("IdCategoria,Descripcion")] Categorium categorium)
         {
             if (ModelState.IsValid)
             {
@@ -66,8 +71,9 @@ namespace MVCOBL.Controllers
             return View(categorium);
         }
 
-        // GET: Categoria/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+		// GET: Categoria/Edit/5
+		[Authorize(Roles = "Admin")]
+		public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Categoria == null)
             {
@@ -87,7 +93,8 @@ namespace MVCOBL.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdCategoria,Descripcion")] Categorium categorium)
+		[Authorize(Roles = "Admin")]
+		public async Task<IActionResult> Edit(int id, [Bind("IdCategoria,Descripcion")] Categorium categorium)
         {
             if (id != categorium.IdCategoria)
             {
@@ -117,8 +124,9 @@ namespace MVCOBL.Controllers
             return View(categorium);
         }
 
-        // GET: Categoria/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+		// GET: Categoria/Delete/5
+		[Authorize(Roles = "Admin")]
+		public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Categoria == null)
             {
@@ -138,7 +146,8 @@ namespace MVCOBL.Controllers
         // POST: Categoria/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+		[Authorize(Roles = "Admin")]
+		public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Categoria == null)
             {

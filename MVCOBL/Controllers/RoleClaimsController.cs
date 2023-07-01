@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MVCOBL.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MVCOBL.Controllers
 {
@@ -19,6 +20,7 @@ namespace MVCOBL.Controllers
         }
 
         // GET: RoleClaims
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             var mVCOBLContext = _context.AspNetRoleClaims.Include(a => a.Role);
@@ -26,6 +28,7 @@ namespace MVCOBL.Controllers
         }
 
         // GET: RoleClaims/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.AspNetRoleClaims == null)
@@ -44,8 +47,9 @@ namespace MVCOBL.Controllers
             return View(aspNetRoleClaim);
         }
 
-        // GET: RoleClaims/Create
-        public IActionResult Create()
+		// GET: RoleClaims/Create
+		[Authorize(Roles = "Admin")]
+		public IActionResult Create()
         {
             ViewData["RoleId"] = new SelectList(_context.AspNetRoles, "Id", "Id");
             return View();
@@ -56,7 +60,8 @@ namespace MVCOBL.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,RoleId,ClaimType,ClaimValue")] AspNetRoleClaim aspNetRoleClaim)
+		[Authorize(Roles = "Admin")]
+		public async Task<IActionResult> Create([Bind("Id,RoleId,ClaimType,ClaimValue")] AspNetRoleClaim aspNetRoleClaim)
         {
             if (ModelState.IsValid)
             {
@@ -68,8 +73,9 @@ namespace MVCOBL.Controllers
             return View(aspNetRoleClaim);
         }
 
-        // GET: RoleClaims/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+		// GET: RoleClaims/Edit/5
+		[Authorize(Roles = "Admin")]
+		public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.AspNetRoleClaims == null)
             {
@@ -90,7 +96,8 @@ namespace MVCOBL.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,RoleId,ClaimType,ClaimValue")] AspNetRoleClaim aspNetRoleClaim)
+		[Authorize(Roles = "Admin")]
+		public async Task<IActionResult> Edit(int id, [Bind("Id,RoleId,ClaimType,ClaimValue")] AspNetRoleClaim aspNetRoleClaim)
         {
             if (id != aspNetRoleClaim.Id)
             {
@@ -121,8 +128,9 @@ namespace MVCOBL.Controllers
             return View(aspNetRoleClaim);
         }
 
-        // GET: RoleClaims/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+		// GET: RoleClaims/Delete/5
+		[Authorize(Roles = "Admin")]
+		public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.AspNetRoleClaims == null)
             {
@@ -143,7 +151,8 @@ namespace MVCOBL.Controllers
         // POST: RoleClaims/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+		[Authorize(Roles = "Admin")]
+		public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.AspNetRoleClaims == null)
             {

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MVCOBL.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MVCOBL.Controllers
 {
@@ -19,6 +20,7 @@ namespace MVCOBL.Controllers
         }
 
         // GET: Roles
+        [Authorize]
         public async Task<IActionResult> Index()
         {
               return _context.AspNetRoles != null ? 
@@ -27,6 +29,7 @@ namespace MVCOBL.Controllers
         }
 
         // GET: Roles/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(string id)
         {
             if (id == null || _context.AspNetRoles == null)
@@ -44,8 +47,9 @@ namespace MVCOBL.Controllers
             return View(aspNetRole);
         }
 
-        // GET: Roles/Create
-        public IActionResult Create()
+		// GET: Roles/Create
+		[Authorize(Roles = "Admin")]
+		public IActionResult Create()
         {
             return View();
         }
@@ -55,7 +59,8 @@ namespace MVCOBL.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,NormalizedName,ConcurrencyStamp")] AspNetRole aspNetRole)
+		[Authorize(Roles = "Admin")]
+		public async Task<IActionResult> Create([Bind("Id,Name,NormalizedName,ConcurrencyStamp")] AspNetRole aspNetRole)
         {
             if (ModelState.IsValid)
             {
@@ -66,8 +71,9 @@ namespace MVCOBL.Controllers
             return View(aspNetRole);
         }
 
-        // GET: Roles/Edit/5
-        public async Task<IActionResult> Edit(string id)
+		// GET: Roles/Edit/5
+		[Authorize(Roles = "Admin")]
+		public async Task<IActionResult> Edit(string id)
         {
             if (id == null || _context.AspNetRoles == null)
             {
@@ -87,7 +93,8 @@ namespace MVCOBL.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,Name,NormalizedName,ConcurrencyStamp")] AspNetRole aspNetRole)
+		[Authorize(Roles = "Admin")]
+		public async Task<IActionResult> Edit(string id, [Bind("Id,Name,NormalizedName,ConcurrencyStamp")] AspNetRole aspNetRole)
         {
             if (id != aspNetRole.Id)
             {
@@ -117,8 +124,9 @@ namespace MVCOBL.Controllers
             return View(aspNetRole);
         }
 
-        // GET: Roles/Delete/5
-        public async Task<IActionResult> Delete(string id)
+		// GET: Roles/Delete/5
+		[Authorize(Roles = "Admin")]
+		public async Task<IActionResult> Delete(string id)
         {
             if (id == null || _context.AspNetRoles == null)
             {
@@ -138,7 +146,8 @@ namespace MVCOBL.Controllers
         // POST: Roles/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
+		[Authorize(Roles = "Admin")]
+		public async Task<IActionResult> DeleteConfirmed(string id)
         {
             if (_context.AspNetRoles == null)
             {

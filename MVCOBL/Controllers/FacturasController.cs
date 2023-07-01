@@ -10,100 +10,100 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace MVCOBL.Controllers
 {
-    public class ComprasController : Controller
+    public class FacturasController : Controller
     {
         private readonly MVCOBLContext _context;
 
-        public ComprasController(MVCOBLContext context)
+        public FacturasController(MVCOBLContext context)
         {
             _context = context;
         }
 
-        // GET: Compras
+        // GET: Facturas
         [Authorize]
         public async Task<IActionResult> Index()
         {
-            var mVCOBLContext = _context.Compras.Include(c => c.IdTiendaNavigation).Include(c => c.IdUsuarioNavigation);
+            var mVCOBLContext = _context.Facturas.Include(f => f.CotizacionNavigation).Include(f => f.IdClienteNavigation);
             return View(await mVCOBLContext.ToListAsync());
         }
 
-        // GET: Compras/Details/5
+        // GET: Facturas/Details/5
         [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Compras == null)
+            if (id == null || _context.Facturas == null)
             {
                 return NotFound();
             }
 
-            var compra = await _context.Compras
-                .Include(c => c.IdTiendaNavigation)
-                .Include(c => c.IdUsuarioNavigation)
-                .FirstOrDefaultAsync(m => m.IdCompra == id);
-            if (compra == null)
+            var factura = await _context.Facturas
+                .Include(f => f.CotizacionNavigation)
+                .Include(f => f.IdClienteNavigation)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (factura == null)
             {
                 return NotFound();
             }
 
-            return View(compra);
+            return View(factura);
         }
 
-		// GET: Compras/Create
+		// GET: Facturas/Create
 		[Authorize(Roles = "Admin, Empleado")]
 		public IActionResult Create()
         {
-            ViewData["IdTienda"] = new SelectList(_context.Tienda, "IdTienda", "IdTienda");
-            ViewData["IdUsuario"] = new SelectList(_context.AspNetUsers, "Id", "Id");
+            ViewData["Cotizacion"] = new SelectList(_context.Cotizaciones, "Id", "Id");
+            ViewData["IdCliente"] = new SelectList(_context.Clientes, "IdCliente", "IdCliente");
             return View();
         }
 
-        // POST: Compras/Create
+        // POST: Facturas/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
 		[Authorize(Roles = "Admin, Empleado")]
-		public async Task<IActionResult> Create([Bind("IdCompra,IdUsuario,IdTienda,TotalCosto,TipoComprobante,FechaRegistro")] Compra compra)
+		public async Task<IActionResult> Create([Bind("Id,Fecha,TipoFactura,IdCliente,Cotizacion")] Factura factura)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(compra);
+                _context.Add(factura);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdTienda"] = new SelectList(_context.Tienda, "IdTienda", "IdTienda", compra.IdTienda);
-            ViewData["IdUsuario"] = new SelectList(_context.AspNetUsers, "Id", "Id", compra.IdUsuario);
-            return View(compra);
+            ViewData["Cotizacion"] = new SelectList(_context.Cotizaciones, "Id", "Id", factura.Cotizacion);
+            ViewData["IdCliente"] = new SelectList(_context.Clientes, "IdCliente", "IdCliente", factura.IdCliente);
+            return View(factura);
         }
 
-		// GET: Compras/Edit/5
+		// GET: Facturas/Edit/5
 		[Authorize(Roles = "Admin, Empleado")]
 		public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Compras == null)
+            if (id == null || _context.Facturas == null)
             {
                 return NotFound();
             }
 
-            var compra = await _context.Compras.FindAsync(id);
-            if (compra == null)
+            var factura = await _context.Facturas.FindAsync(id);
+            if (factura == null)
             {
                 return NotFound();
             }
-            ViewData["IdTienda"] = new SelectList(_context.Tienda, "IdTienda", "IdTienda", compra.IdTienda);
-            ViewData["IdUsuario"] = new SelectList(_context.AspNetUsers, "Id", "Id", compra.IdUsuario);
-            return View(compra);
+            ViewData["Cotizacion"] = new SelectList(_context.Cotizaciones, "Id", "Id", factura.Cotizacion);
+            ViewData["IdCliente"] = new SelectList(_context.Clientes, "IdCliente", "IdCliente", factura.IdCliente);
+            return View(factura);
         }
 
-        // POST: Compras/Edit/5
+        // POST: Facturas/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
 		[Authorize(Roles = "Admin, Empleado")]
-		public async Task<IActionResult> Edit(int id, [Bind("IdCompra,IdUsuario,IdTienda,TotalCosto,TipoComprobante,FechaRegistro")] Compra compra)
+		public async Task<IActionResult> Edit(int id, [Bind("Id,Fecha,TipoFactura,IdCliente,Cotizacion")] Factura factura)
         {
-            if (id != compra.IdCompra)
+            if (id != factura.Id)
             {
                 return NotFound();
             }
@@ -112,12 +112,12 @@ namespace MVCOBL.Controllers
             {
                 try
                 {
-                    _context.Update(compra);
+                    _context.Update(factura);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CompraExists(compra.IdCompra))
+                    if (!FacturaExists(factura.Id))
                     {
                         return NotFound();
                     }
@@ -128,55 +128,55 @@ namespace MVCOBL.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdTienda"] = new SelectList(_context.Tienda, "IdTienda", "IdTienda", compra.IdTienda);
-            ViewData["IdUsuario"] = new SelectList(_context.AspNetUsers, "Id", "Id", compra.IdUsuario);
-            return View(compra);
+            ViewData["Cotizacion"] = new SelectList(_context.Cotizaciones, "Id", "Id", factura.Cotizacion);
+            ViewData["IdCliente"] = new SelectList(_context.Clientes, "IdCliente", "IdCliente", factura.IdCliente);
+            return View(factura);
         }
 
-		// GET: Compras/Delete/5
+		// GET: Facturas/Delete/5
 		[Authorize(Roles = "Admin")]
 		public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Compras == null)
+            if (id == null || _context.Facturas == null)
             {
                 return NotFound();
             }
 
-            var compra = await _context.Compras
-                .Include(c => c.IdTiendaNavigation)
-                .Include(c => c.IdUsuarioNavigation)
-                .FirstOrDefaultAsync(m => m.IdCompra == id);
-            if (compra == null)
+            var factura = await _context.Facturas
+                .Include(f => f.CotizacionNavigation)
+                .Include(f => f.IdClienteNavigation)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (factura == null)
             {
                 return NotFound();
             }
 
-            return View(compra);
+            return View(factura);
         }
 
-        // POST: Compras/Delete/5
+        // POST: Facturas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
 		[Authorize(Roles = "Admin")]
 		public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Compras == null)
+            if (_context.Facturas == null)
             {
-                return Problem("Entity set 'MVCOBLContext.Compras'  is null.");
+                return Problem("Entity set 'MVCOBLContext.Facturas'  is null.");
             }
-            var compra = await _context.Compras.FindAsync(id);
-            if (compra != null)
+            var factura = await _context.Facturas.FindAsync(id);
+            if (factura != null)
             {
-                _context.Compras.Remove(compra);
+                _context.Facturas.Remove(factura);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CompraExists(int id)
+        private bool FacturaExists(int id)
         {
-          return (_context.Compras?.Any(e => e.IdCompra == id)).GetValueOrDefault();
+          return (_context.Facturas?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

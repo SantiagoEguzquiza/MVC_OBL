@@ -140,12 +140,52 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV0YWxsZVZlbnRhc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Facturas/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjdHVyYXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Facturas/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjdHVyYXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Facturas/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjdHVyYXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Facturas/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjdHVyYXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Facturas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjdHVyYXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/LineasFactura/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGluZWFzRmFjdHVyYVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/LineasFactura/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGluZWFzRmFjdHVyYVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/LineasFactura/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGluZWFzRmFjdHVyYVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/LineasFactura/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGluZWFzRmFjdHVyYVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/LineasFactura/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGluZWFzRmFjdHVyYVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/ProductoImagenes/Create.cshtml]
