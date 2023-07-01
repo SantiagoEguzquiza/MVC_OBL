@@ -20,9 +20,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.NormalizedName)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.ConcurrencyStamp)
-            </th>
+            </th>*@
             <th></th>
         </tr>
     </thead>
@@ -35,9 +35,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.NormalizedName)
             </td>
-            <td>
+          @*  <td>
                 @Html.DisplayFor(modelItem => item.ConcurrencyStamp)
-            </td>
+            </td>*@
             <td>
                     @if (User.IsInRole("Admin"))
                     {
