@@ -20,6 +20,7 @@ namespace MVCOBL.Models
         public string? Descripcion { get; set; }
         public int? IdCategoria { get; set; }
         public DateTime? FechaRegistro { get; set; }
+        public int? Stock { get; set; }
 
         public virtual Categorium? IdCategoriaNavigation { get; set; }
         public virtual ICollection<DetalleCompra> DetalleCompras { get; set; }

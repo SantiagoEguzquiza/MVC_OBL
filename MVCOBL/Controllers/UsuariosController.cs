@@ -60,7 +60,7 @@ namespace MVCOBL.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-		[Authorize(Roles = "Administrador")]
+		[Authorize(Roles = "Admin")]
 		public async Task<IActionResult> Create([Bind("Id,UserName,NormalizedUserName,Email,NormalizedEmail,EmailConfirmed,PasswordHash,SecurityStamp,ConcurrencyStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEnd,LockoutEnabled,AccessFailedCount,IdTienda")] AspNetUser aspNetUser)
         {
             if (ModelState.IsValid)

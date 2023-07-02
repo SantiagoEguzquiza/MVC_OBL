@@ -346,6 +346,8 @@ namespace MVCOBL.Models
                     .HasMaxLength(100)
                     .IsUnicode(false);
 
+                entity.Property(e => e.Stock).HasColumnName("stock");
+
                 entity.HasOne(d => d.IdCategoriaNavigation)
                     .WithMany(p => p.Productos)
                     .HasForeignKey(d => d.IdCategoria)

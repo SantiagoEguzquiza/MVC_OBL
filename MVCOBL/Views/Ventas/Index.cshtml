@@ -73,11 +73,11 @@
                 @Html.DisplayFor(modelItem => item.IdUsuarioNavigation.Id)
             </td>
             <td>
-                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.IdVenta">Edit</a> 
-                    <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.IdVenta">Details</a>
+                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.IdVenta">Editar</a> 
+                    <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.IdVenta">Detalles</a>
                     @if (User.IsInRole("Admin"))
                     {
-                        <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.IdVenta">Delete</a>
+                        <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.IdVenta">Borrar</a>
                     }
                 </td>
         </tr>
