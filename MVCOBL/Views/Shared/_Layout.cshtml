@@ -53,19 +53,25 @@
 
 							<li class="nav-item">
 								<a href="#">Control productos</a>
-								<ul style="--cantidad-items: 4">
+								<ul style="--cantidad-items: 3">
 									<li class="nav-item">
 										<a class="nav-link text-dark" asp-area="" asp-controller="Categoria" asp-action="Index">Categoria</a>
 									</li>
-									<li class="nav-item">
+								 @*  	<li class="nav-item">
 										<a class="nav-link text-dark" asp-area="" asp-controller="Productos" asp-action="Index">Productos</a>
+									</li>*@
+									@*<li class="nav-item">
+										<a class="nav-link text-dark" asp-area="" asp-controller="Productos" asp-action="Registrar">Agregar producto</a>
+									</li>*@
+									<li class="nav-item">
+										<a class="nav-link text-dark" asp-area="" asp-controller="Productos" asp-action="Index">Agregar productos</a>
 									</li>
 									<li class="nav-item">
 										<a class="nav-link text-dark" asp-area="" asp-controller="ProductoTienda" asp-action="Index">Producto tienda</a>
 									</li>
-									<li class="nav-item">
+									@*<li class="nav-item">
 										<a class="nav-link text-dark" asp-area="" asp-controller="ProductoImagenes" asp-action="Index">Producto imagenes</a>
-									</li>
+									</li>*@
 								</ul>
 							</li>
 
@@ -115,6 +121,12 @@
 										<a class="nav-link text-dark" asp-area="" asp-controller="LineasFactura" asp-action="Index">Lineas factura</a>
 									</li>
 								</ul>
+							</li>
+						}
+						else
+						{
+							<li class="nav-item">
+								<a class="nav-link text-dark" asp-area="" asp-controller="Productos" asp-action="Catalogo">Catalogo de productos</a>
 							</li>
 						}
 						@*

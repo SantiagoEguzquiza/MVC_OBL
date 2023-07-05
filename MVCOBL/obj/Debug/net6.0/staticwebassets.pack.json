@@ -13,6 +13,18 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\pipi2\\OneDrive\\Escritorio\\Programacion lll\\MVC_OBL\\MVCOBL\\wwwroot\\imagenes\\HpVictus.jpg",
+      "PackagePath": "staticwebassets\\imagenes\\HpVictus.jpg"
+    },
+    {
+      "Id": "C:\\Users\\pipi2\\OneDrive\\Escritorio\\Programacion lll\\MVC_OBL\\MVCOBL\\wwwroot\\imagenes\\HyperX.jpg",
+      "PackagePath": "staticwebassets\\imagenes\\HyperX.jpg"
+    },
+    {
+      "Id": "C:\\Users\\pipi2\\OneDrive\\Escritorio\\Programacion lll\\MVC_OBL\\MVCOBL\\wwwroot\\imagenes\\LogitechG502.jpg",
+      "PackagePath": "staticwebassets\\imagenes\\LogitechG502.jpg"
+    },
+    {
       "Id": "C:\\Users\\pipi2\\OneDrive\\Escritorio\\Programacion lll\\MVC_OBL\\MVCOBL\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
