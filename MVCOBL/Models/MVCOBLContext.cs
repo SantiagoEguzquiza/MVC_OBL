@@ -342,6 +342,11 @@ namespace MVCOBL.Models
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
+                entity.Property(e => e.ImagenUrl)
+                    .HasMaxLength(500)
+                    .IsUnicode(false)
+                    .HasColumnName("imagenUrl");
+
                 entity.Property(e => e.Nombre)
                     .HasMaxLength(100)
                     .IsUnicode(false);

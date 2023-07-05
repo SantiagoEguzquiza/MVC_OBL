@@ -21,6 +21,8 @@ namespace MVCOBL.Models
         public int? IdCategoria { get; set; }
         public DateTime? FechaRegistro { get; set; }
         public int? Stock { get; set; }
+        public string? ImagenUrl { get; set; }
+        public int? Precio { get; set; }
 
         public virtual Categorium? IdCategoriaNavigation { get; set; }
         public virtual ICollection<DetalleCompra> DetalleCompras { get; set; }
