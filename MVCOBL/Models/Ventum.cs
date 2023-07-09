@@ -11,13 +11,9 @@ namespace MVCOBL.Models
         }
 
         public int IdVenta { get; set; }
-        public string? Codigo { get; set; }
-        public int? ValorCodigo { get; set; }
         public int? IdTienda { get; set; }
         public string? IdUsuario { get; set; }
         public int? IdCliente { get; set; }
-        public int? CantidadProducto { get; set; }
-        public int? CantidadTotal { get; set; }
         public decimal? TotalCosto { get; set; }
         public DateTime? FechaRegistro { get; set; }
 

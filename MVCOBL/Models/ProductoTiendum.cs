@@ -10,7 +10,6 @@ namespace MVCOBL.Models
         public int? IdTienda { get; set; }
         public decimal? PrecioUnidadCompra { get; set; }
         public decimal? PrecioUnidadVenta { get; set; }
-        public long? Stock { get; set; }
         public DateTime? FechaRegistro { get; set; }
 
         public virtual Producto? IdProductoNavigation { get; set; }

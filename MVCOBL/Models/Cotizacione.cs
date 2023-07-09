@@ -9,7 +9,6 @@ namespace MVCOBL.Models
         {
             DetalleCompras = new HashSet<DetalleCompra>();
             DetalleVenta = new HashSet<DetalleVentum>();
-            Facturas = new HashSet<Factura>();
         }
 
         public int Id { get; set; }
@@ -18,6 +17,5 @@ namespace MVCOBL.Models
 
         public virtual ICollection<DetalleCompra> DetalleCompras { get; set; }
         public virtual ICollection<DetalleVentum> DetalleVenta { get; set; }
-        public virtual ICollection<Factura> Facturas { get; set; }
     }
 }

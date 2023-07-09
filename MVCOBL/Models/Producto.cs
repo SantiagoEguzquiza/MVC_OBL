@@ -9,8 +9,6 @@ namespace MVCOBL.Models
         {
             DetalleCompras = new HashSet<DetalleCompra>();
             DetalleVenta = new HashSet<DetalleVentum>();
-            LineaFacturas = new HashSet<LineaFactura>();
-            ProductoImagenes = new HashSet<ProductoImagene>();
             ProductoTienda = new HashSet<ProductoTiendum>();
         }
 
@@ -21,14 +19,12 @@ namespace MVCOBL.Models
         public int? IdCategoria { get; set; }
         public DateTime? FechaRegistro { get; set; }
         public int? Stock { get; set; }
-        public string? ImagenUrl { get; set; }
         public int? Precio { get; set; }
+        public string? ImagenUrl { get; set; }
 
         public virtual Categorium? IdCategoriaNavigation { get; set; }
         public virtual ICollection<DetalleCompra> DetalleCompras { get; set; }
         public virtual ICollection<DetalleVentum> DetalleVenta { get; set; }
-        public virtual ICollection<LineaFactura> LineaFacturas { get; set; }
-        public virtual ICollection<ProductoImagene> ProductoImagenes { get; set; }
         public virtual ICollection<ProductoTiendum> ProductoTienda { get; set; }
     }
 }

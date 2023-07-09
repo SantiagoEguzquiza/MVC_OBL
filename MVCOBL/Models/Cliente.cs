@@ -7,7 +7,6 @@ namespace MVCOBL.Models
     {
         public Cliente()
         {
-            Facturas = new HashSet<Factura>();
             Venta = new HashSet<Ventum>();
         }
 
@@ -18,7 +17,6 @@ namespace MVCOBL.Models
         public string? Telefono { get; set; }
         public DateTime? FechaRegistro { get; set; }
 
-        public virtual ICollection<Factura> Facturas { get; set; }
         public virtual ICollection<Ventum> Venta { get; set; }
     }
 }

@@ -28,10 +28,7 @@ namespace MVCOBL.Models
         public virtual DbSet<Cotizacione> Cotizaciones { get; set; } = null!;
         public virtual DbSet<DetalleCompra> DetalleCompras { get; set; } = null!;
         public virtual DbSet<DetalleVentum> DetalleVenta { get; set; } = null!;
-        public virtual DbSet<Factura> Facturas { get; set; } = null!;
-        public virtual DbSet<LineaFactura> LineaFacturas { get; set; } = null!;
         public virtual DbSet<Producto> Productos { get; set; } = null!;
-        public virtual DbSet<ProductoImagene> ProductoImagenes { get; set; } = null!;
         public virtual DbSet<ProductoTiendum> ProductoTienda { get; set; } = null!;
         public virtual DbSet<Tiendum> Tienda { get; set; } = null!;
         public virtual DbSet<Ventum> Venta { get; set; } = null!;
@@ -285,44 +282,6 @@ namespace MVCOBL.Models
                     .HasConstraintName("FK__DETALLE_V__IdVen__1332DBDC");
             });
 
-            modelBuilder.Entity<Factura>(entity =>
-            {
-                entity.ToTable("FACTURA");
-
-                entity.Property(e => e.Fecha)
-                    .HasColumnType("date")
-                    .HasDefaultValueSql("(getdate())");
-
-                entity.Property(e => e.TipoFactura)
-                    .HasMaxLength(30)
-                    .IsUnicode(false);
-
-                entity.HasOne(d => d.CotizacionNavigation)
-                    .WithMany(p => p.Facturas)
-                    .HasForeignKey(d => d.Cotizacion)
-                    .HasConstraintName("FK__FACTURA__Cotizac__2B0A656D");
-
-                entity.HasOne(d => d.IdClienteNavigation)
-                    .WithMany(p => p.Facturas)
-                    .HasForeignKey(d => d.IdCliente)
-                    .HasConstraintName("FK__FACTURA__IdClien__2A164134");
-            });
-
-            modelBuilder.Entity<LineaFactura>(entity =>
-            {
-                entity.ToTable("LINEA_FACTURA");
-
-                entity.HasOne(d => d.IdFacturaNavigation)
-                    .WithMany(p => p.LineaFacturas)
-                    .HasForeignKey(d => d.IdFactura)
-                    .HasConstraintName("FK__LINEA_FAC__IdFac__2DE6D218");
-
-                entity.HasOne(d => d.IdProductoNavigation)
-                    .WithMany(p => p.LineaFacturas)
-                    .HasForeignKey(d => d.IdProducto)
-                    .HasConstraintName("FK__LINEA_FAC__IdPro__2EDAF651");
-            });
-
             modelBuilder.Entity<Producto>(entity =>
             {
                 entity.HasKey(e => e.IdProducto)
@@ -343,9 +302,8 @@ namespace MVCOBL.Models
                     .HasDefaultValueSql("(getdate())");
 
                 entity.Property(e => e.ImagenUrl)
-                    .HasMaxLength(500)
-                    .IsUnicode(false)
-                    .HasColumnName("imagenUrl");
+                    .HasMaxLength(200)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Nombre)
                     .HasMaxLength(100)
@@ -357,20 +315,6 @@ namespace MVCOBL.Models
                     .WithMany(p => p.Productos)
                     .HasForeignKey(d => d.IdCategoria)
                     .HasConstraintName("FK__PRODUCTO__IdCate__6477ECF3");
-            });
-
-            modelBuilder.Entity<ProductoImagene>(entity =>
-            {
-                entity.ToTable("PRODUCTO_IMAGENES");
-
-                entity.Property(e => e.LinkUrl)
-                    .HasMaxLength(200)
-                    .IsUnicode(false);
-
-                entity.HasOne(d => d.IdProductoNavigation)
-                    .WithMany(p => p.ProductoImagenes)
-                    .HasForeignKey(d => d.IdProducto)
-                    .HasConstraintName("FK__PRODUCTO___IdPro__18EBB532");
             });
 
             modelBuilder.Entity<ProductoTiendum>(entity =>
@@ -391,8 +335,6 @@ namespace MVCOBL.Models
                 entity.Property(e => e.PrecioUnidadVenta)
                     .HasColumnType("decimal(18, 2)")
                     .HasDefaultValueSql("((0))");
-
-                entity.Property(e => e.Stock).HasDefaultValueSql("((0))");
 
                 entity.HasOne(d => d.IdProductoNavigation)
                     .WithMany(p => p.ProductoTienda)
@@ -440,10 +382,6 @@ namespace MVCOBL.Models
                     .HasName("PK__VENTA__BC1240BD398B5B72");
 
                 entity.ToTable("VENTA");
-
-                entity.Property(e => e.Codigo)
-                    .HasMaxLength(100)
-                    .IsUnicode(false);
 
                 entity.Property(e => e.FechaRegistro)
                     .HasColumnType("datetime")
