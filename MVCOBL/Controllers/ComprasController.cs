@@ -69,7 +69,7 @@ namespace MVCOBL.Controllers
             {
                 _context.Add(compra);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Create", "DetalleCompras", new {valor = compra.IdCompra});
             }
             ViewData["IdTienda"] = new SelectList(_context.Tienda, "IdTienda", "IdTienda", compra.IdTienda);
             ViewData["IdUsuario"] = new SelectList(_context.AspNetUsers, "Id", "Id", compra.IdUsuario);

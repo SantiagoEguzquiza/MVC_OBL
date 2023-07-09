@@ -51,11 +51,32 @@ namespace MVCOBL.Controllers
 
 		// GET: DetalleVentas/Create
 		[Authorize(Roles = "Admin, Empleado")]
-		public IActionResult Create()
+		//public IActionResult Create()
+  //      {
+  //          ViewData["IdCotizacion"] = new SelectList(_context.Cotizaciones, "Id", "Id");
+  //          ViewData["IdProducto"] = new SelectList(_context.Productos, "IdProducto", "IdProducto");
+  //          ViewData["IdVenta"] = new SelectList(_context.Venta, "IdVenta", "IdVenta");
+  //          return View();
+  //      }
+
+        public IActionResult Create(int valor)
         {
+            int dato = valor;
+
+            var listaLinea = _context.DetalleCompras.Where(l => l.IdCompra == valor).ToList();
+
+
+            ViewBag.Lineas = listaLinea;
+
+            ViewBag.dato = dato;
+
+            //ViewData["IdCompra"] = new SelectList(_context.Productos, "IdFactura", "IdFactura", dato);
+            //ViewData["IdProducto"] = new SelectList(_context.Productos, "IdProducto", "IdProducto");
+
             ViewData["IdCotizacion"] = new SelectList(_context.Cotizaciones, "Id", "Id");
             ViewData["IdProducto"] = new SelectList(_context.Productos, "IdProducto", "IdProducto");
-            ViewData["IdVenta"] = new SelectList(_context.Venta, "IdVenta", "IdVenta");
+            ViewData["IdVenta"] = new SelectList(_context.Venta, "IdVenta", "IdVenta", dato);
+
             return View();
         }
 
@@ -71,7 +92,7 @@ namespace MVCOBL.Controllers
             {
                 _context.Add(detalleVentum);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Create), new { valor = detalleVentum.IdVenta });
             }
             ViewData["IdCotizacion"] = new SelectList(_context.Cotizaciones, "Id", "Id", detalleVentum.IdCotizacion);
             ViewData["IdProducto"] = new SelectList(_context.Productos, "IdProducto", "IdProducto", detalleVentum.IdProducto);

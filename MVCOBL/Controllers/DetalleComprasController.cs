@@ -51,18 +51,39 @@ namespace MVCOBL.Controllers
 
 		// GET: DetalleCompras/Create
 		[Authorize(Roles = "Admin, Empleado")]
-		public IActionResult Create()
-        {
-            ViewData["IdCompra"] = new SelectList(_context.Compras, "IdCompra", "IdCompra");
-            ViewData["IdCotizacion"] = new SelectList(_context.Cotizaciones, "Id", "Id");
-            ViewData["IdProducto"] = new SelectList(_context.Productos, "IdProducto", "IdProducto");
-            return View();
-        }
+		//public IActionResult Create()
+  //      {
+  //          ViewData["IdCompra"] = new SelectList(_context.Compras, "IdCompra", "IdCompra");
+  //          ViewData["IdCotizacion"] = new SelectList(_context.Cotizaciones, "Id", "Id");
+  //          ViewData["IdProducto"] = new SelectList(_context.Productos, "IdProducto", "IdProducto");
+  //          return View();
+  //      }
 
-        // POST: DetalleCompras/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+		public IActionResult Create(int valor)
+		{
+			int dato = valor;
+
+			var listaLinea = _context.DetalleCompras.Where(l => l.IdCompra == valor).ToList();
+
+
+			ViewBag.Lineas = listaLinea;
+
+			ViewBag.dato = dato;
+
+			//ViewData["IdCompra"] = new SelectList(_context.Productos, "IdFactura", "IdFactura", dato);
+			//ViewData["IdProducto"] = new SelectList(_context.Productos, "IdProducto", "IdProducto");
+
+			ViewData["IdCompra"] = new SelectList(_context.Compras, "IdCompra", "IdCompra", dato);
+			ViewData["IdCotizacion"] = new SelectList(_context.Cotizaciones, "Id", "Id");
+			ViewData["IdProducto"] = new SelectList(_context.Productos, "IdProducto", "IdProducto");
+
+			return View();
+		}
+
+		// POST: DetalleCompras/Create
+		// To protect from overposting attacks, enable the specific properties you want to bind to.
+		// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+		[HttpPost]
         [ValidateAntiForgeryToken]
 		[Authorize(Roles = "Admin, Empleado")]
 		public async Task<IActionResult> Create([Bind("IdDetalleCompra,IdCompra,IdProducto,Cantidad,PrecioUnitarioCompra,TotalCosto,FechaRegistro,IdCotizacion")] DetalleCompra detalleCompra)
@@ -71,7 +92,7 @@ namespace MVCOBL.Controllers
             {
                 _context.Add(detalleCompra);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Create), new {valor = detalleCompra.IdCompra});
             }
             ViewData["IdCompra"] = new SelectList(_context.Compras, "IdCompra", "IdCompra", detalleCompra.IdCompra);
             ViewData["IdCotizacion"] = new SelectList(_context.Cotizaciones, "Id", "Id", detalleCompra.IdCotizacion);

@@ -72,7 +72,7 @@ namespace MVCOBL.Controllers
             {
                 _context.Add(ventum);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Create", "DetalleVentas", new { valor = ventum.IdVenta });
             }
             ViewData["IdCliente"] = new SelectList(_context.Clientes, "IdCliente", "IdCliente", ventum.IdCliente);
             ViewData["IdTienda"] = new SelectList(_context.Tienda, "IdTienda", "IdTienda", ventum.IdTienda);
