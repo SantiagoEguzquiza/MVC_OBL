@@ -24,6 +24,32 @@ namespace MVCOBL.Controllers
         [Authorize]
         public async Task<IActionResult> Index()
         {
+
+            var ventas = _context.Venta.ToList();
+            var Usuarios = _context.AspNetUsers.ToList();
+
+
+            //Esto es un inner join el nombre de usuario por cada venta existente, basicamente replica la lista ventas y en cada idUsuario te lo iguala al nombre.
+            //Generando una lista con la misma cantidad que la de ventas pero en cada objeto solo tiene el nombre
+
+            var nombreUsuarios = ventas
+                .Join(Usuarios, venta => venta.IdUsuario, usuario => usuario.Id, (venta, usuario) => new { venta, usuario })
+                .Select(x => new { x.venta.IdUsuario, x.usuario.UserName })
+                .ToList();
+
+
+            ViewBag.nombreUser = nombreUsuarios;
+            ViewBag.venta = ventas;
+         
+            //Esta es una lista combinada 
+            var combinada = nombreUsuarios.Zip(ventas, (usuario, venta) => new { Nombre = usuario.UserName, Fecha = venta.FechaRegistro, Cliente = venta.IdCliente, Sucursal = venta.IdTienda, IdVenta = venta.IdVenta  });
+
+            ViewBag.combinada = combinada;
+
+
+
+            //var Usuarios = _context.AspNetUsers.Where(x => x.Id == );
+
             var mVCOBLContext = _context.Venta.Include(v => v.IdClienteNavigation).Include(v => v.IdTiendaNavigation).Include(v => v.IdUsuarioNavigation);
             return View(await mVCOBLContext.ToListAsync());
         }
@@ -50,11 +76,13 @@ namespace MVCOBL.Controllers
             return View(ventum);
         }
 
-		// GET: Ventas/Create
-		[Authorize(Roles = "Admin, Empleado")]
-		public IActionResult Create()
+        // GET: Ventas/Create
+        [Authorize(Roles = "Admin, Empleado")]
+        public IActionResult Create()
 
         {
+
+
             ViewData["IdCliente"] = new SelectList(_context.Clientes, "IdCliente", "IdCliente");
             ViewData["IdTienda"] = new SelectList(_context.Tienda, "IdTienda", "IdTienda");
             ViewData["IdUsuario"] = new SelectList(_context.AspNetUsers, "Id", "Id");
@@ -66,8 +94,8 @@ namespace MVCOBL.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-		[Authorize(Roles = "Admin, Empleado")]
-		public async Task<IActionResult> Create([Bind("IdVenta,Codigo,ValorCodigo,IdTienda,IdUsuario,IdCliente,CantidadProducto,CantidadTotal,TotalCosto,FechaRegistro")] Ventum ventum)
+        [Authorize(Roles = "Admin, Empleado")]
+        public async Task<IActionResult> Create([Bind("IdVenta,Codigo,ValorCodigo,IdTienda,IdUsuario,IdCliente,CantidadProducto,CantidadTotal,TotalCosto,FechaRegistro")] Ventum ventum)
         {
             if (ModelState.IsValid)
             {
@@ -76,17 +104,17 @@ namespace MVCOBL.Controllers
                 return RedirectToAction("Create", "DetalleVentas", new { valor = ventum.IdVenta });
             }
 
-            
-            
+
+
             ViewData["IdCliente"] = new SelectList(_context.Clientes, "IdCliente", "IdCliente", ventum.IdCliente);
             ViewData["IdTienda"] = new SelectList(_context.Tienda, "IdTienda", "IdTienda", ventum.IdTienda);
             ViewData["IdUsuario"] = new SelectList(_context.AspNetUsers, "Id", "Id", ventum.IdUsuario);
             return View(ventum);
         }
 
-		// GET: Ventas/Edit/5
-		[Authorize(Roles = "Admin, Empleado")]
-		public async Task<IActionResult> Edit(int? id)
+        // GET: Ventas/Edit/5
+        [Authorize(Roles = "Admin, Empleado")]
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Venta == null)
             {
@@ -109,8 +137,8 @@ namespace MVCOBL.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-		[Authorize(Roles = "Admin, Empleado")]
-		public async Task<IActionResult> Edit(int id, [Bind("IdVenta,Codigo,ValorCodigo,IdTienda,IdUsuario,IdCliente,CantidadProducto,CantidadTotal,TotalCosto,FechaRegistro")] Ventum ventum)
+        [Authorize(Roles = "Admin, Empleado")]
+        public async Task<IActionResult> Edit(int id, [Bind("IdVenta,Codigo,ValorCodigo,IdTienda,IdUsuario,IdCliente,CantidadProducto,CantidadTotal,TotalCosto,FechaRegistro")] Ventum ventum)
         {
             if (id != ventum.IdVenta)
             {
@@ -143,9 +171,9 @@ namespace MVCOBL.Controllers
             return View(ventum);
         }
 
-		// GET: Ventas/Delete/5
-		[Authorize(Roles = "Admin")]
-		public async Task<IActionResult> Delete(int? id)
+        // GET: Ventas/Delete/5
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Venta == null)
             {
@@ -168,8 +196,8 @@ namespace MVCOBL.Controllers
         // POST: Ventas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-		[Authorize(Roles = "Admin")]
-		public async Task<IActionResult> DeleteConfirmed(int id)
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Venta == null)
             {
@@ -180,14 +208,14 @@ namespace MVCOBL.Controllers
             {
                 _context.Venta.Remove(ventum);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool VentumExists(int id)
         {
-          return (_context.Venta?.Any(e => e.IdVenta == id)).GetValueOrDefault();
+            return (_context.Venta?.Any(e => e.IdVenta == id)).GetValueOrDefault();
         }
 
         [Authorize]
