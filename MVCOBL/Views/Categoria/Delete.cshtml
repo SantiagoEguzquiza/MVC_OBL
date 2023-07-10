@@ -1,0 +1,27 @@
+﻿@model MVCOBL.Models.Categorium
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Borrar categoria</h1>
+
+<h3>Seguro que deseas hacerlo?</h3>
+<div>
+ 
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdCategoria" />
+        <input type="submit" value="Borrar" class="btn btn-danger" /> |
+        <a asp-action="Index" class="btn btn-primary">Volver</a>
+    </form>
+</div>

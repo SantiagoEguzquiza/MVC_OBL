@@ -1,0 +1,59 @@
+﻿@model MVCOBL.Models.ProductoTiendum
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editar producto/tienda</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdProductoTienda" />
+            <div class="form-group">
+                <label asp-for="IdProducto" class="control-label"></label>
+                <select asp-for="IdProducto" class="form-control" asp-items="ViewBag.IdProducto"></select>
+                <span asp-validation-for="IdProducto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdTienda" class="control-label"></label>
+                <select asp-for="IdTienda" class="form-control" asp-items="ViewBag.IdTienda"></select>
+                <span asp-validation-for="IdTienda" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PrecioUnidadCompra" class="control-label"></label>
+                <input asp-for="PrecioUnidadCompra" class="form-control" />
+                <span asp-validation-for="PrecioUnidadCompra" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PrecioUnidadVenta" class="control-label"></label>
+                <input asp-for="PrecioUnidadVenta" class="form-control" />
+                <span asp-validation-for="PrecioUnidadVenta" class="text-danger"></span>
+            </div>
+         @*   <div class="form-group">
+                <label asp-for="Stock" class="control-label"></label>
+                <input asp-for="Stock" class="form-control" />
+                <span asp-validation-for="Stock" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="FechaRegistro" class="control-label"></label>
+                <input asp-for="FechaRegistro" class="form-control" />
+                <span asp-validation-for="FechaRegistro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index"class="btn btn-danger">Volver</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

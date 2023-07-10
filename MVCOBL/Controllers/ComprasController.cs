@@ -178,27 +178,5 @@ namespace MVCOBL.Controllers
         {
           return (_context.Compras?.Any(e => e.IdCompra == id)).GetValueOrDefault();
         }
-
-        [Authorize]
-        public IActionResult VerFactura(int id)
-
-        {
-            var Compra = _context.Compras.Where(x => x.IdCompra == id).ToList();
-            var ListaDetalle = _context.DetalleCompras.Where(x => x.IdCompra == id).ToList();
-
-            decimal? aux = 0;
-
-            foreach (var venta in ListaDetalle)
-            {
-                aux += venta.TotalCosto;
-            }
-
-            ViewBag.Compra = Compra;
-            ViewBag.ListaDetalleCompra = ListaDetalle;
-            ViewBag.TotalCompra = aux;
-
-
-            return View();
-        }
     }
 }

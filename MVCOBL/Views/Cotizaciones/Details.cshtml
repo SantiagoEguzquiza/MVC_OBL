@@ -1,0 +1,30 @@
+﻿@model MVCOBL.Models.Cotizacione
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalle cotizacion</h1>
+
+<div>
+    
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TipoMoneda)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TipoMoneda)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ValorMoneda)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ValorMoneda)
+        </dd>
+    </dl>
+</div>
+<div>
+ 
+    <a asp-action="Index" class="btn btn-danger">Volver</a>
+</div>

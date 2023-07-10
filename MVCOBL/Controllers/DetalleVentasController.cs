@@ -105,6 +105,13 @@ namespace MVCOBL.Controllers
                 return RedirectToAction(nameof(Create), new { valor = detalleVentum.IdVenta });
 
             }
+
+
+
+            
+
+            
+
             ViewData["IdCotizacion"] = new SelectList(_context.Cotizaciones, "Id", "Id", detalleVentum.IdCotizacion);
             ViewData["IdProducto"] = new SelectList(_context.Productos, "IdProducto", "IdProducto", detalleVentum.IdProducto);
             ViewData["IdVenta"] = new SelectList(_context.Venta, "IdVenta", "IdVenta", detalleVentum.IdVenta);

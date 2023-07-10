@@ -1,0 +1,55 @@
+﻿@model IEnumerable<MVCOBL.Models.AspNetRole>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Roles</h1>
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Crear</a>
+    </p>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+        @*    <th>
+                @Html.DisplayNameFor(model => model.NormalizedName)
+            </th>*@
+            @*<th>
+                @Html.DisplayNameFor(model => model.ConcurrencyStamp)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+     @*       <td>
+                @Html.DisplayFor(modelItem => item.NormalizedName)
+            </td>*@
+          @*  <td>
+                @Html.DisplayFor(modelItem => item.ConcurrencyStamp)
+            </td>*@
+            <td>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.Id">Editar</a>
+                    }
+                    <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.Id">Detalles</a>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id">Borrar</a>
+                    }
+                </td>
+        </tr>
+}
+    </tbody>
+</table>
