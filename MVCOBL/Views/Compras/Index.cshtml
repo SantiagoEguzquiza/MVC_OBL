@@ -12,44 +12,58 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.TotalCosto)
+            @*  <th>
+            @Html.DisplayNameFor(model => model.TotalCosto)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TipoComprobante)
+            @Html.DisplayNameFor(model => model.TipoComprobante)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FechaRegistro)
+            @Html.DisplayNameFor(model => model.FechaRegistro)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdTiendaNavigation)
+            @Html.DisplayNameFor(model => model.IdTiendaNavigation)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdUsuarioNavigation)
+            @Html.DisplayNameFor(model => model.IdUsuarioNavigation)
+            </th>*@
+
+            <th>
+                Usuario
             </th>
-            <th></th>
+            <th>
+                Sucursal
+            </th>
+            
+            <th>
+                Fecha
+            </th>
+
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TotalCosto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TipoComprobante)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaRegistro)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdTiendaNavigation.IdTienda)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdUsuarioNavigation.Id)
-            </td>
-            <td>
-                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.IdCompra">Editar</a> 
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdUsuarioNavigation.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdTiendaNavigation.IdTienda)
+                </td>
+               @* <td>
+                    @Html.DisplayFor(modelItem => item.TotalCosto)
+                </td>*@
+               @* <td>
+                    @Html.DisplayFor(modelItem => item.TipoComprobante)
+                </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaRegistro)
+                </td>
+                
+
+                <td>
+                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.IdCompra">Editar</a>
                     <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.IdCompra">Detalles</a>
                     @if (User.IsInRole("Admin"))
                     {
@@ -57,7 +71,7 @@
                     }
                     <a asp-action="VerFactura" class="btn btn-success" asp-route-id="@item.IdCompra">Factura</a>
                 </td>
-        </tr>
-}
+            </tr>
+        }
     </tbody>
 </table>
