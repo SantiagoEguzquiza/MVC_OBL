@@ -9,433 +9,377 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MVCOBL
 build_property.RootNamespace = MVCOBL
-build_property.ProjectDir = C:\Users\pipi2\OneDrive\Escritorio\Programacion lll\MVC_OBL\MVCOBL\
+build_property.ProjectDir = C:\Users\santi\Desktop\Carrera\MVC_OBL\MVCOBL\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\pipi2\OneDrive\Escritorio\Programacion lll\MVC_OBL\MVCOBL
+build_property.MSBuildProjectDirectory = C:\Users\santi\Desktop\Carrera\MVC_OBL\MVCOBL
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Areas/Identity/Pages/_ViewStart.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Categoria/Create.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Categoria/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Categoria/Delete.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Categoria/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Categoria/Details.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Categoria/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Categoria/Edit.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Categoria/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Categoria/Index.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Categoria/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Clientes/Create.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Clientes/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Clientes/Delete.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Clientes/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Clientes/Details.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Clientes/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Clientes/Edit.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Clientes/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Clientes/Index.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Clientes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Compras/Create.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Compras/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcHJhc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Compras/Delete.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Compras/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcHJhc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Compras/Details.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Compras/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcHJhc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Compras/Edit.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Compras/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcHJhc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Compras/Index.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Compras/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcHJhc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Cotizaciones/Create.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Cotizaciones/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ290aXphY2lvbmVzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Cotizaciones/Delete.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Cotizaciones/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ290aXphY2lvbmVzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Cotizaciones/Details.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Cotizaciones/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ290aXphY2lvbmVzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Cotizaciones/Edit.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Cotizaciones/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ290aXphY2lvbmVzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Cotizaciones/Index.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Cotizaciones/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ290aXphY2lvbmVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/DetalleCompras/Create.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/DetalleCompras/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV0YWxsZUNvbXByYXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/DetalleCompras/Delete.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/DetalleCompras/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV0YWxsZUNvbXByYXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/DetalleCompras/Details.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/DetalleCompras/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV0YWxsZUNvbXByYXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/DetalleCompras/Edit.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/DetalleCompras/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV0YWxsZUNvbXByYXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/DetalleCompras/Index.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/DetalleCompras/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV0YWxsZUNvbXByYXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/DetalleVentas/Create.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/DetalleVentas/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV0YWxsZVZlbnRhc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/DetalleVentas/Delete.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/DetalleVentas/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV0YWxsZVZlbnRhc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/DetalleVentas/Details.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/DetalleVentas/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV0YWxsZVZlbnRhc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/DetalleVentas/Edit.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/DetalleVentas/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV0YWxsZVZlbnRhc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/DetalleVentas/Index.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/DetalleVentas/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV0YWxsZVZlbnRhc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Facturas/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjdHVyYXNcQ3JlYXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Facturas/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjdHVyYXNcRGVsZXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Facturas/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjdHVyYXNcRGV0YWlscy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Facturas/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjdHVyYXNcRWRpdC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Facturas/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjdHVyYXNcSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Home/Index.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Home/Privacy.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/LineasFactura/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGluZWFzRmFjdHVyYVxDcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/LineasFactura/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGluZWFzRmFjdHVyYVxEZWxldGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/LineasFactura/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGluZWFzRmFjdHVyYVxEZXRhaWxzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/LineasFactura/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGluZWFzRmFjdHVyYVxFZGl0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/LineasFactura/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGluZWFzRmFjdHVyYVxJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/ProductoImagenes/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9JbWFnZW5lc1xDcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/ProductoImagenes/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9JbWFnZW5lc1xEZWxldGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/ProductoImagenes/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9JbWFnZW5lc1xEZXRhaWxzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/ProductoImagenes/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9JbWFnZW5lc1xFZGl0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/ProductoImagenes/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9JbWFnZW5lc1xJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Productos/Catalogo.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Productos/Catalogo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zXENhdGFsb2dvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Productos/Create.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Productos/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Productos/Delete.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Productos/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Productos/Details.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Productos/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Productos/Edit.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Productos/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Productos/Index.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Productos/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Productos/Registro.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Productos/Registro.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zXFJlZ2lzdHJvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/ProductoTienda/Create.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/ProductoTienda/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9UaWVuZGFcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/ProductoTienda/Delete.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/ProductoTienda/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9UaWVuZGFcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/ProductoTienda/Details.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/ProductoTienda/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9UaWVuZGFcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/ProductoTienda/Edit.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/ProductoTienda/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9UaWVuZGFcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/ProductoTienda/Index.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/ProductoTienda/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9UaWVuZGFcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/RoleClaims/Create.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/RoleClaims/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZUNsYWltc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/RoleClaims/Delete.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/RoleClaims/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZUNsYWltc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/RoleClaims/Details.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/RoleClaims/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZUNsYWltc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/RoleClaims/Edit.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/RoleClaims/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZUNsYWltc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/RoleClaims/Index.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/RoleClaims/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZUNsYWltc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Roles/Create.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Roles/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Roles/Delete.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Roles/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Roles/Details.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Roles/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Roles/Edit.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Roles/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Roles/Index.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Roles/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Shared/Error.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Shared/_LoginPartial.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Tienda/Create.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Tienda/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGllbmRhXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Tienda/Delete.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Tienda/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGllbmRhXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Tienda/Details.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Tienda/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGllbmRhXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Tienda/Edit.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Tienda/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGllbmRhXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Tienda/Index.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Tienda/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGllbmRhXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/UsuarioClaims/Create.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/UsuarioClaims/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb0NsYWltc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/UsuarioClaims/Delete.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/UsuarioClaims/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb0NsYWltc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/UsuarioClaims/Details.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/UsuarioClaims/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb0NsYWltc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/UsuarioClaims/Edit.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/UsuarioClaims/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb0NsYWltc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/UsuarioClaims/Index.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/UsuarioClaims/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb0NsYWltc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/UsuarioLogin/Create.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/UsuarioLogin/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb0xvZ2luXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/UsuarioLogin/Delete.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/UsuarioLogin/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb0xvZ2luXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/UsuarioLogin/Details.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/UsuarioLogin/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb0xvZ2luXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/UsuarioLogin/Edit.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/UsuarioLogin/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb0xvZ2luXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/UsuarioLogin/Index.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/UsuarioLogin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb0xvZ2luXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Usuarios/Create.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Usuarios/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Usuarios/Delete.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Usuarios/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Usuarios/Details.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Usuarios/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Usuarios/Edit.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Usuarios/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Usuarios/Index.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Usuarios/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/UsuarioTokens/Create.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/UsuarioTokens/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1Rva2Vuc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/UsuarioTokens/Delete.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/UsuarioTokens/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1Rva2Vuc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/UsuarioTokens/Details.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/UsuarioTokens/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1Rva2Vuc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/UsuarioTokens/Edit.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/UsuarioTokens/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1Rva2Vuc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/UsuarioTokens/Index.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/UsuarioTokens/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1Rva2Vuc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Ventas/Create.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Ventas/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVudGFzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Ventas/Delete.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Ventas/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVudGFzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Ventas/Details.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Ventas/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVudGFzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Ventas/Edit.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Ventas/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVudGFzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Ventas/Index.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Ventas/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVudGFzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/_ViewImports.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Ventas/VerFactura.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVudGFzXFZlckZhY3R1cmEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/_ViewStart.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pipi2/OneDrive/Escritorio/Programacion lll/MVC_OBL/MVCOBL/Views/Shared/_Layout.cshtml]
+[C:/Users/santi/Desktop/Carrera/MVC_OBL/MVCOBL/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-izua3ta2rr

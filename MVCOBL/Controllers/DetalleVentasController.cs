@@ -49,29 +49,28 @@ namespace MVCOBL.Controllers
             return View(detalleVentum);
         }
 
-		// GET: DetalleVentas/Create
-		[Authorize(Roles = "Admin, Empleado")]
-		//public IActionResult Create()
-  //      {
-  //          ViewData["IdCotizacion"] = new SelectList(_context.Cotizaciones, "Id", "Id");
-  //          ViewData["IdProducto"] = new SelectList(_context.Productos, "IdProducto", "IdProducto");
-  //          ViewData["IdVenta"] = new SelectList(_context.Venta, "IdVenta", "IdVenta");
-  //          return View();
-  //      }
+        // GET: DetalleVentas/Create
+        [Authorize(Roles = "Admin, Empleado")]
+        //public IActionResult Create()
+        //      {
+        //          ViewData["IdCotizacion"] = new SelectList(_context.Cotizaciones, "Id", "Id");
+        //          ViewData["IdProducto"] = new SelectList(_context.Productos, "IdProducto", "IdProducto");
+        //          ViewData["IdVenta"] = new SelectList(_context.Venta, "IdVenta", "IdVenta");
+        //          return View();
+        //      }
 
         public IActionResult Create(int valor)
         {
             int dato = valor;
 
-            var listaLinea = _context.DetalleCompras.Where(l => l.IdCompra == valor).ToList();
+            var listaLinea = _context.DetalleVenta.Where(l => l.IdVenta == valor).ToList();
 
 
             ViewBag.Lineas = listaLinea;
 
             ViewBag.dato = dato;
 
-            //ViewData["IdCompra"] = new SelectList(_context.Productos, "IdFactura", "IdFactura", dato);
-            //ViewData["IdProducto"] = new SelectList(_context.Productos, "IdProducto", "IdProducto");
+
 
             ViewData["IdCotizacion"] = new SelectList(_context.Cotizaciones, "Id", "Id");
             ViewData["IdProducto"] = new SelectList(_context.Productos, "IdProducto", "IdProducto");
@@ -85,24 +84,43 @@ namespace MVCOBL.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-		[Authorize(Roles = "Admin, Empleado")]
-		public async Task<IActionResult> Create([Bind("IdDetalleVenta,IdVenta,IdProducto,Cantidad,PrecioUnidad,ImporteTotal,FechaRegistro,IdCotizacion")] DetalleVentum detalleVentum)
+        [Authorize(Roles = "Admin, Empleado")]
+        public async Task<IActionResult> Create([Bind("IdDetalleVenta,IdVenta,IdProducto,Cantidad,PrecioUnidad,ImporteTotal,FechaRegistro,IdCotizacion")] DetalleVentum detalleVentum)
         {
             if (ModelState.IsValid)
             {
+                var idProducto = detalleVentum.IdProducto;
+                var Prod = _context.Productos.Where(l => l.IdProducto == idProducto).ToList().FirstOrDefault();
+                var precioPrd = Prod.Precio;
+                detalleVentum.PrecioUnidad = precioPrd;
+
+                var cantidad = detalleVentum.Cantidad;
+
+                var total = cantidad * precioPrd;
+
+                detalleVentum.ImporteTotal = total;
+
                 _context.Add(detalleVentum);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Create), new { valor = detalleVentum.IdVenta });
+
             }
+
+
+
+            
+
+            
+
             ViewData["IdCotizacion"] = new SelectList(_context.Cotizaciones, "Id", "Id", detalleVentum.IdCotizacion);
             ViewData["IdProducto"] = new SelectList(_context.Productos, "IdProducto", "IdProducto", detalleVentum.IdProducto);
             ViewData["IdVenta"] = new SelectList(_context.Venta, "IdVenta", "IdVenta", detalleVentum.IdVenta);
             return View(detalleVentum);
         }
 
-		// GET: DetalleVentas/Edit/5
-		[Authorize(Roles = "Admin, Empleado")]
-		public async Task<IActionResult> Edit(int? id)
+        // GET: DetalleVentas/Edit/5
+        [Authorize(Roles = "Admin, Empleado")]
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.DetalleVenta == null)
             {
@@ -125,8 +143,8 @@ namespace MVCOBL.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-		[Authorize(Roles = "Admin, Empleado")]
-		public async Task<IActionResult> Edit(int id, [Bind("IdDetalleVenta,IdVenta,IdProducto,Cantidad,PrecioUnidad,ImporteTotal,FechaRegistro,IdCotizacion")] DetalleVentum detalleVentum)
+        [Authorize(Roles = "Admin, Empleado")]
+        public async Task<IActionResult> Edit(int id, [Bind("IdDetalleVenta,IdVenta,IdProducto,Cantidad,PrecioUnidad,ImporteTotal,FechaRegistro,IdCotizacion")] DetalleVentum detalleVentum)
         {
             if (id != detalleVentum.IdDetalleVenta)
             {
@@ -159,9 +177,9 @@ namespace MVCOBL.Controllers
             return View(detalleVentum);
         }
 
-		// GET: DetalleVentas/Delete/5
-		[Authorize(Roles = "Admin")]
-		public async Task<IActionResult> Delete(int? id)
+        // GET: DetalleVentas/Delete/5
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.DetalleVenta == null)
             {
@@ -184,8 +202,8 @@ namespace MVCOBL.Controllers
         // POST: DetalleVentas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-		[Authorize(Roles = "Admin")]
-		public async Task<IActionResult> DeleteConfirmed(int id)
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.DetalleVenta == null)
             {
@@ -196,14 +214,14 @@ namespace MVCOBL.Controllers
             {
                 _context.DetalleVenta.Remove(detalleVentum);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool DetalleVentumExists(int id)
         {
-          return (_context.DetalleVenta?.Any(e => e.IdDetalleVenta == id)).GetValueOrDefault();
+            return (_context.DetalleVenta?.Any(e => e.IdDetalleVenta == id)).GetValueOrDefault();
         }
     }
 }

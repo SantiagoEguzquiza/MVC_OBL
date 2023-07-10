@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using MVCOBL.Models;
 using Microsoft.AspNetCore.Authorization;
 
+
 namespace MVCOBL.Controllers
 {
     public class VentasController : Controller
@@ -74,6 +75,9 @@ namespace MVCOBL.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Create", "DetalleVentas", new { valor = ventum.IdVenta });
             }
+
+            
+            
             ViewData["IdCliente"] = new SelectList(_context.Clientes, "IdCliente", "IdCliente", ventum.IdCliente);
             ViewData["IdTienda"] = new SelectList(_context.Tienda, "IdTienda", "IdTienda", ventum.IdTienda);
             ViewData["IdUsuario"] = new SelectList(_context.AspNetUsers, "Id", "Id", ventum.IdUsuario);
@@ -184,6 +188,28 @@ namespace MVCOBL.Controllers
         private bool VentumExists(int id)
         {
           return (_context.Venta?.Any(e => e.IdVenta == id)).GetValueOrDefault();
+        }
+
+        [Authorize]
+        public IActionResult VerFactura(int id)
+
+        {
+            var Venta = _context.Venta.Where(x => x.IdVenta == id).ToList();
+            var ListaDetalle = _context.DetalleVenta.Where(x => x.IdVenta == id).ToList();
+
+            decimal? aux = 0;
+
+            foreach (var venta in ListaDetalle)
+            {
+                aux += venta.ImporteTotal;
+            }
+
+            ViewBag.Venta = Venta;
+            ViewBag.ListaDetalle = ListaDetalle;
+            ViewBag.Total = aux;
+
+
+            return View();
         }
     }
 }

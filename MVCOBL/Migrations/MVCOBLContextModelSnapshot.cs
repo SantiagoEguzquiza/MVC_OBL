@@ -105,6 +105,9 @@ namespace MVCOBL.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<int?>("IdTienda")
+                        .HasColumnType("int");
+
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
 
@@ -139,6 +142,8 @@ namespace MVCOBL.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("IdTienda");
 
                     b.HasIndex(new[] { "NormalizedEmail" }, "EmailIndex");
 
@@ -219,24 +224,379 @@ namespace MVCOBL.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("MVCOBL.Models.Producto", b =>
+            modelBuilder.Entity("MVCOBL.Models.Categorium", b =>
+                {
+                    b.Property<int>("IdCategoria")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdCategoria"), 1L, 1);
+
+                    b.Property<string>("Descripcion")
+                        .HasMaxLength(100)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(100)");
+
+                    b.HasKey("IdCategoria")
+                        .HasName("PK__CATEGORI__A3C02A104647F967");
+
+                    b.ToTable("CATEGORIA", (string)null);
+                });
+
+            modelBuilder.Entity("MVCOBL.Models.Cliente", b =>
+                {
+                    b.Property<int>("IdCliente")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdCliente"), 1L, 1);
+
+                    b.Property<string>("Direccion")
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<DateTime?>("FechaRegistro")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("(getdate())");
+
+                    b.Property<string>("Nombre")
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("NumeroDocumento")
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("Telefono")
+                        .HasMaxLength(40)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(40)");
+
+                    b.HasKey("IdCliente")
+                        .HasName("PK__CLIENTE__D5946642D954E764");
+
+                    b.ToTable("CLIENTE", (string)null);
+                });
+
+            modelBuilder.Entity("MVCOBL.Models.Compra", b =>
+                {
+                    b.Property<int>("IdCompra")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdCompra"), 1L, 1);
+
+                    b.Property<DateTime?>("FechaRegistro")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("(getdate())");
+
+                    b.Property<int?>("IdTienda")
+                        .HasColumnType("int");
+
+                    b.Property<string>("IdUsuario")
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("TipoComprobante")
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)")
+                        .HasDefaultValueSql("('Boleta')");
+
+                    b.Property<decimal?>("TotalCosto")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("decimal(18,2)")
+                        .HasDefaultValueSql("((0))");
+
+                    b.HasKey("IdCompra")
+                        .HasName("PK__COMPRA__0A5CDB5CF84FCFBD");
+
+                    b.HasIndex("IdTienda");
+
+                    b.HasIndex("IdUsuario");
+
+                    b.ToTable("COMPRA", (string)null);
+                });
+
+            modelBuilder.Entity("MVCOBL.Models.Cotizacione", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("id");
+                        .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("Nombre")
-                        .HasMaxLength(10)
+                    b.Property<string>("TipoMoneda")
+                        .HasMaxLength(50)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(10)")
-                        .HasColumnName("nombre");
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<int?>("ValorMoneda")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("producto", (string)null);
+                    b.ToTable("COTIZACIONES", (string)null);
+                });
+
+            modelBuilder.Entity("MVCOBL.Models.DetalleCompra", b =>
+                {
+                    b.Property<int>("IdDetalleCompra")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdDetalleCompra"), 1L, 1);
+
+                    b.Property<int?>("Cantidad")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("FechaRegistro")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("(getdate())");
+
+                    b.Property<int?>("IdCompra")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("IdCotizacion")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("IdProducto")
+                        .HasColumnType("int");
+
+                    b.Property<decimal?>("PrecioUnitarioCompra")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal?>("TotalCosto")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("IdDetalleCompra")
+                        .HasName("PK__DETALLE___E046CCBB37E015AA");
+
+                    b.HasIndex("IdCompra");
+
+                    b.HasIndex("IdCotizacion");
+
+                    b.HasIndex("IdProducto");
+
+                    b.ToTable("DETALLE_COMPRA", (string)null);
+                });
+
+            modelBuilder.Entity("MVCOBL.Models.DetalleVentum", b =>
+                {
+                    b.Property<int>("IdDetalleVenta")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdDetalleVenta"), 1L, 1);
+
+                    b.Property<int?>("Cantidad")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("FechaRegistro")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("(getdate())");
+
+                    b.Property<int?>("IdCotizacion")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("IdProducto")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("IdVenta")
+                        .HasColumnType("int");
+
+                    b.Property<decimal?>("ImporteTotal")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal?>("PrecioUnidad")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("IdDetalleVenta")
+                        .HasName("PK__DETALLE___AAA5CEC2687ABDDA");
+
+                    b.HasIndex("IdCotizacion");
+
+                    b.HasIndex("IdProducto");
+
+                    b.HasIndex("IdVenta");
+
+                    b.ToTable("DETALLE_VENTA", (string)null);
+                });
+
+            modelBuilder.Entity("MVCOBL.Models.Producto", b =>
+                {
+                    b.Property<int>("IdProducto")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdProducto"), 1L, 1);
+
+                    b.Property<string>("Codigo")
+                        .HasMaxLength(100)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("Descripcion")
+                        .HasMaxLength(100)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<DateTime?>("FechaRegistro")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("(getdate())");
+
+                    b.Property<int?>("IdCategoria")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ImagenUrl")
+                        .HasMaxLength(200)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(200)");
+
+                    b.Property<string>("Nombre")
+                        .HasMaxLength(100)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<int?>("Precio")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Stock")
+                        .HasColumnType("int")
+                        .HasColumnName("stock");
+
+                    b.HasKey("IdProducto")
+                        .HasName("PK__PRODUCTO__09889210FBEFDAD7");
+
+                    b.HasIndex("IdCategoria");
+
+                    b.ToTable("PRODUCTO", (string)null);
+                });
+
+            modelBuilder.Entity("MVCOBL.Models.ProductoTiendum", b =>
+                {
+                    b.Property<int>("IdProductoTienda")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdProductoTienda"), 1L, 1);
+
+                    b.Property<DateTime?>("FechaRegistro")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("(getdate())");
+
+                    b.Property<int?>("IdProducto")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("IdTienda")
+                        .HasColumnType("int");
+
+                    b.Property<decimal?>("PrecioUnidadCompra")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("decimal(18,2)")
+                        .HasDefaultValueSql("((0))");
+
+                    b.Property<decimal?>("PrecioUnidadVenta")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("decimal(18,2)")
+                        .HasDefaultValueSql("((0))");
+
+                    b.HasKey("IdProductoTienda")
+                        .HasName("PK__PRODUCTO__CE9B4C831C88AD03");
+
+                    b.HasIndex("IdProducto");
+
+                    b.HasIndex("IdTienda");
+
+                    b.ToTable("PRODUCTO_TIENDA", (string)null);
+                });
+
+            modelBuilder.Entity("MVCOBL.Models.Tiendum", b =>
+                {
+                    b.Property<int>("IdTienda")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdTienda"), 1L, 1);
+
+                    b.Property<string>("Direccion")
+                        .HasMaxLength(100)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<DateTime?>("FechaRegistro")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("(getdate())");
+
+                    b.Property<string>("Nombre")
+                        .HasMaxLength(60)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(60)");
+
+                    b.Property<string>("Ruc")
+                        .HasMaxLength(60)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(60)")
+                        .HasColumnName("RUC");
+
+                    b.Property<string>("Telefono")
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)");
+
+                    b.HasKey("IdTienda")
+                        .HasName("PK__TIENDA__5A1EB96B4A89AC14");
+
+                    b.ToTable("TIENDA", (string)null);
+                });
+
+            modelBuilder.Entity("MVCOBL.Models.Ventum", b =>
+                {
+                    b.Property<int>("IdVenta")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdVenta"), 1L, 1);
+
+                    b.Property<DateTime?>("FechaRegistro")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("(getdate())");
+
+                    b.Property<int?>("IdCliente")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("IdTienda")
+                        .HasColumnType("int");
+
+                    b.Property<string>("IdUsuario")
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<decimal?>("TotalCosto")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("IdVenta")
+                        .HasName("PK__VENTA__BC1240BD398B5B72");
+
+                    b.HasIndex("IdCliente");
+
+                    b.HasIndex("IdTienda");
+
+                    b.HasIndex("IdUsuario");
+
+                    b.ToTable("VENTA", (string)null);
                 });
 
             modelBuilder.Entity("AspNetUserRole", b =>
@@ -263,6 +623,16 @@ namespace MVCOBL.Migrations
                         .IsRequired();
 
                     b.Navigation("Role");
+                });
+
+            modelBuilder.Entity("MVCOBL.Models.AspNetUser", b =>
+                {
+                    b.HasOne("MVCOBL.Models.Tiendum", "IdTiendaNavigation")
+                        .WithMany("AspNetUsers")
+                        .HasForeignKey("IdTienda")
+                        .HasConstraintName("FK__AspNetUse__IdTie__1AD3FDA4");
+
+                    b.Navigation("IdTiendaNavigation");
                 });
 
             modelBuilder.Entity("MVCOBL.Models.AspNetUserClaim", b =>
@@ -298,6 +668,122 @@ namespace MVCOBL.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("MVCOBL.Models.Compra", b =>
+                {
+                    b.HasOne("MVCOBL.Models.Tiendum", "IdTiendaNavigation")
+                        .WithMany("Compras")
+                        .HasForeignKey("IdTienda")
+                        .HasConstraintName("FK__COMPRA__IdTienda__797309D9");
+
+                    b.HasOne("MVCOBL.Models.AspNetUser", "IdUsuarioNavigation")
+                        .WithMany("Compras")
+                        .HasForeignKey("IdUsuario")
+                        .HasConstraintName("FK__COMPRA__IdUsuari__787EE5A0");
+
+                    b.Navigation("IdTiendaNavigation");
+
+                    b.Navigation("IdUsuarioNavigation");
+                });
+
+            modelBuilder.Entity("MVCOBL.Models.DetalleCompra", b =>
+                {
+                    b.HasOne("MVCOBL.Models.Compra", "IdCompraNavigation")
+                        .WithMany("DetalleCompras")
+                        .HasForeignKey("IdCompra")
+                        .HasConstraintName("FK__DETALLE_C__IdCom__01142BA1");
+
+                    b.HasOne("MVCOBL.Models.Cotizacione", "IdCotizacionNavigation")
+                        .WithMany("DetalleCompras")
+                        .HasForeignKey("IdCotizacion")
+                        .HasConstraintName("FK__DETALLE_C__IdCot__03F0984C");
+
+                    b.HasOne("MVCOBL.Models.Producto", "IdProductoNavigation")
+                        .WithMany("DetalleCompras")
+                        .HasForeignKey("IdProducto")
+                        .HasConstraintName("FK__DETALLE_C__IdPro__02084FDA");
+
+                    b.Navigation("IdCompraNavigation");
+
+                    b.Navigation("IdCotizacionNavigation");
+
+                    b.Navigation("IdProductoNavigation");
+                });
+
+            modelBuilder.Entity("MVCOBL.Models.DetalleVentum", b =>
+                {
+                    b.HasOne("MVCOBL.Models.Cotizacione", "IdCotizacionNavigation")
+                        .WithMany("DetalleVenta")
+                        .HasForeignKey("IdCotizacion")
+                        .HasConstraintName("FK__DETALLE_V__IdCot__160F4887");
+
+                    b.HasOne("MVCOBL.Models.Producto", "IdProductoNavigation")
+                        .WithMany("DetalleVenta")
+                        .HasForeignKey("IdProducto")
+                        .HasConstraintName("FK__DETALLE_V__IdPro__14270015");
+
+                    b.HasOne("MVCOBL.Models.Ventum", "IdVentaNavigation")
+                        .WithMany("DetalleVenta")
+                        .HasForeignKey("IdVenta")
+                        .HasConstraintName("FK__DETALLE_V__IdVen__1332DBDC");
+
+                    b.Navigation("IdCotizacionNavigation");
+
+                    b.Navigation("IdProductoNavigation");
+
+                    b.Navigation("IdVentaNavigation");
+                });
+
+            modelBuilder.Entity("MVCOBL.Models.Producto", b =>
+                {
+                    b.HasOne("MVCOBL.Models.Categorium", "IdCategoriaNavigation")
+                        .WithMany("Productos")
+                        .HasForeignKey("IdCategoria")
+                        .HasConstraintName("FK__PRODUCTO__IdCate__6477ECF3");
+
+                    b.Navigation("IdCategoriaNavigation");
+                });
+
+            modelBuilder.Entity("MVCOBL.Models.ProductoTiendum", b =>
+                {
+                    b.HasOne("MVCOBL.Models.Producto", "IdProductoNavigation")
+                        .WithMany("ProductoTienda")
+                        .HasForeignKey("IdProducto")
+                        .HasConstraintName("FK__PRODUCTO___IdPro__68487DD7");
+
+                    b.HasOne("MVCOBL.Models.Tiendum", "IdTiendaNavigation")
+                        .WithMany("ProductoTienda")
+                        .HasForeignKey("IdTienda")
+                        .HasConstraintName("FK__PRODUCTO___IdTie__693CA210");
+
+                    b.Navigation("IdProductoNavigation");
+
+                    b.Navigation("IdTiendaNavigation");
+                });
+
+            modelBuilder.Entity("MVCOBL.Models.Ventum", b =>
+                {
+                    b.HasOne("MVCOBL.Models.Cliente", "IdClienteNavigation")
+                        .WithMany("Venta")
+                        .HasForeignKey("IdCliente")
+                        .HasConstraintName("FK__VENTA__IdCliente__0F624AF8");
+
+                    b.HasOne("MVCOBL.Models.Tiendum", "IdTiendaNavigation")
+                        .WithMany("Venta")
+                        .HasForeignKey("IdTienda")
+                        .HasConstraintName("FK__VENTA__IdTienda__0D7A0286");
+
+                    b.HasOne("MVCOBL.Models.AspNetUser", "IdUsuarioNavigation")
+                        .WithMany("Venta")
+                        .HasForeignKey("IdUsuario")
+                        .HasConstraintName("FK__VENTA__IdUsuario__0E6E26BF");
+
+                    b.Navigation("IdClienteNavigation");
+
+                    b.Navigation("IdTiendaNavigation");
+
+                    b.Navigation("IdUsuarioNavigation");
+                });
+
             modelBuilder.Entity("MVCOBL.Models.AspNetRole", b =>
                 {
                     b.Navigation("AspNetRoleClaims");
@@ -310,6 +796,57 @@ namespace MVCOBL.Migrations
                     b.Navigation("AspNetUserLogins");
 
                     b.Navigation("AspNetUserTokens");
+
+                    b.Navigation("Compras");
+
+                    b.Navigation("Venta");
+                });
+
+            modelBuilder.Entity("MVCOBL.Models.Categorium", b =>
+                {
+                    b.Navigation("Productos");
+                });
+
+            modelBuilder.Entity("MVCOBL.Models.Cliente", b =>
+                {
+                    b.Navigation("Venta");
+                });
+
+            modelBuilder.Entity("MVCOBL.Models.Compra", b =>
+                {
+                    b.Navigation("DetalleCompras");
+                });
+
+            modelBuilder.Entity("MVCOBL.Models.Cotizacione", b =>
+                {
+                    b.Navigation("DetalleCompras");
+
+                    b.Navigation("DetalleVenta");
+                });
+
+            modelBuilder.Entity("MVCOBL.Models.Producto", b =>
+                {
+                    b.Navigation("DetalleCompras");
+
+                    b.Navigation("DetalleVenta");
+
+                    b.Navigation("ProductoTienda");
+                });
+
+            modelBuilder.Entity("MVCOBL.Models.Tiendum", b =>
+                {
+                    b.Navigation("AspNetUsers");
+
+                    b.Navigation("Compras");
+
+                    b.Navigation("ProductoTienda");
+
+                    b.Navigation("Venta");
+                });
+
+            modelBuilder.Entity("MVCOBL.Models.Ventum", b =>
+                {
+                    b.Navigation("DetalleVenta");
                 });
 #pragma warning restore 612, 618
         }

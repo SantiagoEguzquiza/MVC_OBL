@@ -25,12 +25,12 @@
                 <input asp-for="Cantidad" class="form-control" />
                 <span asp-validation-for="Cantidad" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div hidden class="form-group">
                 <label asp-for="PrecioUnidad" class="control-label"></label>
-                <input asp-for="PrecioUnidad" class="form-control" />
-                <span asp-validation-for="PrecioUnidad" class="text-danger"></span>
+                <input asp-for="PrecioUnidad" class="form-control" value="@ViewBag.Precio" readonly/>
+                @*<span asp-validation-for="PrecioUnidad" class="text-danger"></span>*@
             </div>
-            <div class="form-group">
+            <div hidden class="form-group">
                 <label asp-for="ImporteTotal" class="control-label"></label>
                 <input asp-for="ImporteTotal" class="form-control" />
                 <span asp-validation-for="ImporteTotal" class="text-danger"></span>
@@ -79,7 +79,7 @@ catch (Exception)
 }
 
 <div>
-    <a asp-action="Index" class="btn btn-danger">Volver</a>
+    <a asp-action="Index" asp-controller="Ventas" class="btn btn-danger">Volver</a>
 </div>
 
 @section Scripts {

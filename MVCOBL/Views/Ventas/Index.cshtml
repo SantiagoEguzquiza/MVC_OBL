@@ -24,9 +24,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.CantidadTotal)
             </th>*@
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.TotalCosto)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.FechaRegistro)
             </th>
@@ -57,9 +57,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.CantidadTotal)
             </td>*@
-            <td>
+          @*  <td>
                 @Html.DisplayFor(modelItem => item.TotalCosto)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.FechaRegistro)
             </td>
@@ -79,6 +79,7 @@
                     {
                         <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.IdVenta">Borrar</a>
                     }
+                    <a asp-action="VerFactura" class="btn btn-success" asp-route-id="@item.IdVenta">Factura</a>
                 </td>
         </tr>
 }
