@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "yaBwaifvkEcmRr29poor6x4YGZ18L0b1oVLAC4GAdJI=",
+  "Hash": "oj9ntY2LMsFZCXGVsa1QaVRm9kN2SbiV3H76CNzxIog=",
   "Source": "MVCOBL",
   "BasePath": "_content/MVCOBL",
   "Mode": "Default",
@@ -1154,6 +1154,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\imagenes\\LogitechG502.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\santi\\Desktop\\Carrera\\MVC_OBL\\MVCOBL\\wwwroot\\js\\app.js",
+      "SourceId": "MVCOBL",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\santi\\Desktop\\Carrera\\MVC_OBL\\MVCOBL\\wwwroot\\",
+      "BasePath": "_content/MVCOBL",
+      "RelativePath": "js/app.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\app.js"
+    },
+    {
+      "Identity": "C:\\Users\\santi\\Desktop\\Carrera\\MVC_OBL\\MVCOBL\\wwwroot\\js\\ci.js",
+      "SourceId": "MVCOBL",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\santi\\Desktop\\Carrera\\MVC_OBL\\MVCOBL\\wwwroot\\",
+      "BasePath": "_content/MVCOBL",
+      "RelativePath": "js/ci.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\ci.js"
     },
     {
       "Identity": "C:\\Users\\santi\\Desktop\\Carrera\\MVC_OBL\\MVCOBL\\wwwroot\\js\\site.js",

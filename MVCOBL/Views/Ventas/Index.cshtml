@@ -12,68 +12,71 @@
 <table class="table">
     <thead>
         <tr>
-      @*      <th>
-                @Html.DisplayNameFor(model => model.Codigo)
+            @*      <th>
+            @Html.DisplayNameFor(model => model.Codigo)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ValorCodigo)
+            @Html.DisplayNameFor(model => model.ValorCodigo)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CantidadProducto)
+            @Html.DisplayNameFor(model => model.CantidadProducto)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CantidadTotal)
+            @Html.DisplayNameFor(model => model.CantidadTotal)
             </th>*@
             @*<th>
-                @Html.DisplayNameFor(model => model.TotalCosto)
+            @Html.DisplayNameFor(model => model.TotalCosto)
             </th>*@
             <th>
-                @Html.DisplayNameFor(model => model.FechaRegistro)
+                Usuario
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdClienteNavigation)
+                Cliente
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdTiendaNavigation)
+                Sucursal
             </th>
+
             <th>
-                @Html.DisplayNameFor(model => model.IdUsuarioNavigation)
+                Fecha
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-      @*      <td>
-                @Html.DisplayFor(modelItem => item.Codigo)
+        @foreach (var item in Model)
+        {
+            <tr>
+                @*      <td>
+            @Html.DisplayFor(modelItem => item.Codigo)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ValorCodigo)
+            @Html.DisplayFor(modelItem => item.ValorCodigo)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CantidadProducto)
+            @Html.DisplayFor(modelItem => item.CantidadProducto)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CantidadTotal)
+            @Html.DisplayFor(modelItem => item.CantidadTotal)
             </td>*@
-          @*  <td>
-                @Html.DisplayFor(modelItem => item.TotalCosto)
+                @*  <td>
+            @Html.DisplayFor(modelItem => item.TotalCosto)
             </td>*@
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaRegistro)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdClienteNavigation.IdCliente)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdTiendaNavigation.IdTienda)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdUsuarioNavigation.Id)
-            </td>
-            <td>
-                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.IdVenta">Editar</a> 
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdUsuarioNavigation.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdClienteNavigation.IdCliente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdTiendaNavigation.IdTienda)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaRegistro)
+                </td>
+
+                <td>
+                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.IdVenta">Editar</a>
                     <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.IdVenta">Detalles</a>
                     @if (User.IsInRole("Admin"))
                     {
@@ -81,7 +84,7 @@
                     }
                     <a asp-action="VerFactura" class="btn btn-success" asp-route-id="@item.IdVenta">Factura</a>
                 </td>
-        </tr>
-}
+            </tr>
+        }
     </tbody>
 </table>
