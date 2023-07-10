@@ -90,6 +90,17 @@ namespace MVCOBL.Controllers
         {
             if (ModelState.IsValid)
             {
+                var idProducto = detalleCompra.IdProducto;
+                var Prod = _context.Productos.Where(l => l.IdProducto == idProducto).ToList().FirstOrDefault();
+                var precioPrd = Prod.Precio;
+                detalleCompra.PrecioUnitarioCompra = precioPrd;
+
+                var cantidad = detalleCompra.Cantidad;
+
+                var total = cantidad * precioPrd;
+
+                detalleCompra.TotalCosto = total;
+
                 _context.Add(detalleCompra);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Create), new {valor = detalleCompra.IdCompra});
