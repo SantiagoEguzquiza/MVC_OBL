@@ -186,6 +186,7 @@ namespace MVCOBL.Controllers
             var ListaDetalle = _context.DetalleCompras.Where(x => x.IdCompra == id).ToList();
 
             decimal? aux = 0;
+            
 
             foreach (var venta in ListaDetalle)
             {

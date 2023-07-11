@@ -91,6 +91,7 @@ namespace MVCOBL.Controllers
                 var idProducto = detalleCompra.IdProducto;
                 var Prod = _context.Productos.Where(l => l.IdProducto == idProducto).ToList().FirstOrDefault();
                 var precioPrd = Prod.Precio;
+
                 detalleCompra.PrecioUnitarioCompra = precioPrd;
 
                 var cantidad = detalleCompra.Cantidad;
