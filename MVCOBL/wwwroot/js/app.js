@@ -5,9 +5,6 @@ var form = document.getElementById("formulario")
 var submit = document.getElementById("formulario")
 
 
-//cinput.addEventListener('keyup', function () {
-//    ci_uy(cinput.value);
-//});
 
 form.addEventListener('submit', e => {        
 

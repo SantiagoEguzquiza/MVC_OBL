@@ -1,0 +1,6 @@
+C:\Users\santi\Desktop\Carrera\MVC_OBL\API\bin\Debug\API.dll
+C:\Users\santi\Desktop\Carrera\MVC_OBL\API\bin\Debug\API.pdb
+C:\Users\santi\Desktop\Carrera\MVC_OBL\API\obj\Debug\API.csproj.AssemblyReference.cache
+C:\Users\santi\Desktop\Carrera\MVC_OBL\API\obj\Debug\API.csproj.CoreCompileInputs.cache
+C:\Users\santi\Desktop\Carrera\MVC_OBL\API\obj\Debug\API.dll
+C:\Users\santi\Desktop\Carrera\MVC_OBL\API\obj\Debug\API.pdb

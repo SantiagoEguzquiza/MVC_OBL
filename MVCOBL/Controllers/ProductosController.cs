@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MVCOBL.Models;
 using Microsoft.AspNetCore.Authorization;
+using API;
+using Newtonsoft.Json;
 
 namespace MVCOBL.Controllers
 {
@@ -30,7 +32,28 @@ namespace MVCOBL.Controllers
 		}
 		public IActionResult Catalogo()
 		{
-			var listarProducto = _context.Productos.ToList();
+
+            //------------------------------------* API Obtener Cotizacion *-------------------------------------------------------  
+
+
+
+            API_COT cotizacion = new API_COT();
+
+            string resultado = cotizacion.GetCotizacion();
+
+            var cotizacionReal = JsonConvert.DeserializeObject<COTIZACION>(resultado);
+
+			var dolar = cotizacionReal.Quotes;
+
+
+
+
+
+            //------------------------------------* API *-------------------------------------------------------
+
+
+
+            var listarProducto = _context.Productos.ToList();
 			return View(listarProducto);
 		}
 

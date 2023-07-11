@@ -7,10 +7,14 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MVCOBL.Models;
 using Microsoft.AspNetCore.Authorization;
+using Newtonsoft.Json;
+using API;
 
 
 namespace MVCOBL.Controllers
 {
+
+
     public class VentasController : Controller
     {
         private readonly MVCOBLContext _context;
@@ -18,6 +22,7 @@ namespace MVCOBL.Controllers
         public VentasController(MVCOBLContext context)
         {
             _context = context;
+           
         }
 
         // GET: Ventas
@@ -25,8 +30,14 @@ namespace MVCOBL.Controllers
         public async Task<IActionResult> Index()
         {
 
+
+
             var ventas = _context.Venta.ToList();
             var Usuarios = _context.AspNetUsers.ToList();
+
+
+            //var currentUser = _context.AspNetUsers.FirstOrDefault();
+            //ViewBag.CurrentUser = currentUser.Id;
 
 
             //Esto es un inner join el nombre de usuario por cada venta existente, basicamente replica la lista ventas y en cada idUsuario te lo iguala al nombre.
@@ -36,8 +47,7 @@ namespace MVCOBL.Controllers
                 .Join(Usuarios, venta => venta.IdUsuario, usuario => usuario.Id, (venta, usuario) => new { venta, usuario })
                 .Select(x => new { x.venta.IdUsuario, x.usuario.UserName })
                 .ToList();
-
-
+         
             ViewBag.nombreUser = nombreUsuarios;
             ViewBag.venta = ventas;
          
@@ -80,8 +90,7 @@ namespace MVCOBL.Controllers
         [Authorize(Roles = "Admin, Empleado")]
         public IActionResult Create()
 
-        {
-
+        {          
 
             ViewData["IdCliente"] = new SelectList(_context.Clientes, "IdCliente", "IdCliente");
             ViewData["IdTienda"] = new SelectList(_context.Tienda, "IdTienda", "IdTienda");

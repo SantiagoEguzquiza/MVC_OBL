@@ -10,18 +10,14 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create" id="formulario">
-            @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
+        <form asp-action="Create" id="formulario">       
             <div class="form-group">
                 <label asp-for="NumeroDocumento" class="control-label"></label>
                 <input id="val_ci" asp-for="NumeroDocumento" placeholder="0.000.000-0" class="form-control" required />
-                @*<span  asp-validation-for="NumeroDocumento" class="text-danger"></span>*@
+               
             </div>
 
-            @*<div class="info">
-                <strong>Validar cédula:</strong>
-                <input asp-for="NumeroDocumento" id="val_ci" type="text" placeholder="0.000.000-0" />
-            </div>*@
+           
             
 
 
