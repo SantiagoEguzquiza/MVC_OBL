@@ -99,6 +99,8 @@ namespace MVCOBL.Controllers
 
                 detalleCompra.TotalCosto = total;
 
+                Prod.Stock += cantidad;
+
                 _context.Add(detalleCompra);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Create), new {valor = detalleCompra.IdCompra});

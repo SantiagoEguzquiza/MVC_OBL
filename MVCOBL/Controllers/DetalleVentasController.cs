@@ -99,7 +99,9 @@ namespace MVCOBL.Controllers
 
                 detalleVentum.ImporteTotal = total;
 
-                _context.Add(detalleVentum);
+				Prod.Stock -= cantidad;
+
+				_context.Add(detalleVentum);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Create), new { valor = detalleVentum.IdVenta });
 

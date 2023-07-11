@@ -33,7 +33,7 @@ namespace MVCOBL.Controllers
         public IActionResult Catalogo()
         {
 
-            //------------------------------------* API Obtener Cotizacion *-------------------------------------------------------  
+            //------------------------------------* API Obtener Cotizacion del dia *-------------------------------------------------------  
 
             API_COT cotizacion = new API_COT();
             
@@ -130,7 +130,7 @@ namespace MVCOBL.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Create([Bind("IdProducto,Codigo,Nombre,Descripcion,Precio,Stock,IdCategoria,IdCotizacion,ImagenUrl,FechaRegistro")] Producto producto)
+        public async Task<IActionResult> Create([Bind("IdProducto,Codigo,Nombre,Descripcion,Precio,Stock,IdCategoria,IdCotizacion,Moneda,ImagenUrl,FechaRegistro")] Producto producto)
         {
             if (ModelState.IsValid)
             {
@@ -168,7 +168,7 @@ namespace MVCOBL.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Edit(int id, [Bind("IdProducto,Codigo,Nombre,Descripcion,Precio,Stock,IdCategoria,ImagenUrl,FechaRegistro,IdCotizacion")] Producto producto)
+        public async Task<IActionResult> Edit(int id, [Bind("IdProducto,Codigo,Nombre,Descripcion,Precio,Stock,IdCategoria,Moneda,ImagenUrl,FechaRegistro,IdCotizacion")] Producto producto)
         {
             if (id != producto.IdProducto)
             {

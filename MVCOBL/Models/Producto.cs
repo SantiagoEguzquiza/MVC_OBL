@@ -22,6 +22,7 @@ namespace MVCOBL.Models
         public int? Precio { get; set; }
         public string? ImagenUrl { get; set; }
         public int? IdCotizacion { get; set; }
+        public string? Moneda { get; set; }
 
         public virtual Categorium? IdCategoriaNavigation { get; set; }
         public virtual Cotizacione? IdCotizacionNavigation { get; set; }

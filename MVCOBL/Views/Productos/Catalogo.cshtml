@@ -32,6 +32,9 @@
 			<th>
 				@Html.DisplayNameFor(model => model.Precio)
 			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Moneda)
+			</th>
 		@*	<th>
 				@Html.DisplayNameFor(model => model.IdCategoriaNavigation)
 			</th>*@
@@ -68,6 +71,9 @@
 				</td>
 				<td>
 					@Html.DisplayFor(modelItem => item.Precio)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Moneda)
 				</td>
 @*				<td>
 					@Html.DisplayFor(modelItem => item.IdCategoriaNavigation.IdCategoria)

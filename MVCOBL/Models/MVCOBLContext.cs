@@ -299,6 +299,10 @@ namespace MVCOBL.Models
                     .HasMaxLength(200)
                     .IsUnicode(false);
 
+                entity.Property(e => e.Moneda)
+                    .HasMaxLength(40)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.Nombre)
                     .HasMaxLength(100)
                     .IsUnicode(false);
