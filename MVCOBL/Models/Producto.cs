@@ -21,8 +21,10 @@ namespace MVCOBL.Models
         public int? Stock { get; set; }
         public int? Precio { get; set; }
         public string? ImagenUrl { get; set; }
+        public int? IdCotizacion { get; set; }
 
         public virtual Categorium? IdCategoriaNavigation { get; set; }
+        public virtual Cotizacione? IdCotizacionNavigation { get; set; }
         public virtual ICollection<DetalleCompra> DetalleCompras { get; set; }
         public virtual ICollection<DetalleVentum> DetalleVenta { get; set; }
         public virtual ICollection<ProductoTiendum> ProductoTienda { get; set; }

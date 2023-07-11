@@ -23,7 +23,7 @@ namespace MVCOBL.Controllers
         [Authorize]
         public async Task<IActionResult> Index()
         {
-            var mVCOBLContext = _context.DetalleCompras.Include(d => d.IdCompraNavigation).Include(d => d.IdCotizacionNavigation).Include(d => d.IdProductoNavigation);
+            var mVCOBLContext = _context.DetalleCompras.Include(d => d.IdCompraNavigation).Include(d => d.IdProductoNavigation);
             return View(await mVCOBLContext.ToListAsync());
         }
 
@@ -37,8 +37,7 @@ namespace MVCOBL.Controllers
             }
 
             var detalleCompra = await _context.DetalleCompras
-                .Include(d => d.IdCompraNavigation)
-                .Include(d => d.IdCotizacionNavigation)
+                .Include(d => d.IdCompraNavigation)               
                 .Include(d => d.IdProductoNavigation)
                 .FirstOrDefaultAsync(m => m.IdDetalleCompra == id);
             if (detalleCompra == null)
@@ -73,8 +72,7 @@ namespace MVCOBL.Controllers
 			//ViewData["IdCompra"] = new SelectList(_context.Productos, "IdFactura", "IdFactura", dato);
 			//ViewData["IdProducto"] = new SelectList(_context.Productos, "IdProducto", "IdProducto");
 
-			ViewData["IdCompra"] = new SelectList(_context.Compras, "IdCompra", "IdCompra", dato);
-			ViewData["IdCotizacion"] = new SelectList(_context.Cotizaciones, "Id", "Id");
+			ViewData["IdCompra"] = new SelectList(_context.Compras, "IdCompra", "IdCompra", dato);		
 			ViewData["IdProducto"] = new SelectList(_context.Productos, "IdProducto", "IdProducto");
 
 			return View();
@@ -86,7 +84,7 @@ namespace MVCOBL.Controllers
 		[HttpPost]
         [ValidateAntiForgeryToken]
 		[Authorize(Roles = "Admin, Empleado")]
-		public async Task<IActionResult> Create([Bind("IdDetalleCompra,IdCompra,IdProducto,Cantidad,PrecioUnitarioCompra,TotalCosto,FechaRegistro,IdCotizacion")] DetalleCompra detalleCompra)
+		public async Task<IActionResult> Create([Bind("IdDetalleCompra,IdCompra,IdProducto,Cantidad,PrecioUnitarioCompra,TotalCosto,FechaRegistro")] DetalleCompra detalleCompra)
         {
             if (ModelState.IsValid)
             {
@@ -105,8 +103,7 @@ namespace MVCOBL.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Create), new {valor = detalleCompra.IdCompra});
             }
-            ViewData["IdCompra"] = new SelectList(_context.Compras, "IdCompra", "IdCompra", detalleCompra.IdCompra);
-            ViewData["IdCotizacion"] = new SelectList(_context.Cotizaciones, "Id", "Id", detalleCompra.IdCotizacion);
+            ViewData["IdCompra"] = new SelectList(_context.Compras, "IdCompra", "IdCompra", detalleCompra.IdCompra);          
             ViewData["IdProducto"] = new SelectList(_context.Productos, "IdProducto", "IdProducto", detalleCompra.IdProducto);
             return View(detalleCompra);
         }
@@ -125,8 +122,7 @@ namespace MVCOBL.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdCompra"] = new SelectList(_context.Compras, "IdCompra", "IdCompra", detalleCompra.IdCompra);
-            ViewData["IdCotizacion"] = new SelectList(_context.Cotizaciones, "Id", "Id", detalleCompra.IdCotizacion);
+            ViewData["IdCompra"] = new SelectList(_context.Compras, "IdCompra", "IdCompra", detalleCompra.IdCompra);          
             ViewData["IdProducto"] = new SelectList(_context.Productos, "IdProducto", "IdProducto", detalleCompra.IdProducto);
             return View(detalleCompra);
         }
@@ -137,7 +133,7 @@ namespace MVCOBL.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
 		[Authorize(Roles = "Admin, Empleado")]
-		public async Task<IActionResult> Edit(int id, [Bind("IdDetalleCompra,IdCompra,IdProducto,Cantidad,PrecioUnitarioCompra,TotalCosto,FechaRegistro,IdCotizacion")] DetalleCompra detalleCompra)
+		public async Task<IActionResult> Edit(int id, [Bind("IdDetalleCompra,IdCompra,IdProducto,Cantidad,PrecioUnitarioCompra,TotalCosto,FechaRegistro")] DetalleCompra detalleCompra)
         {
             if (id != detalleCompra.IdDetalleCompra)
             {
@@ -164,8 +160,7 @@ namespace MVCOBL.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdCompra"] = new SelectList(_context.Compras, "IdCompra", "IdCompra", detalleCompra.IdCompra);
-            ViewData["IdCotizacion"] = new SelectList(_context.Cotizaciones, "Id", "Id", detalleCompra.IdCotizacion);
+            ViewData["IdCompra"] = new SelectList(_context.Compras, "IdCompra", "IdCompra", detalleCompra.IdCompra);        
             ViewData["IdProducto"] = new SelectList(_context.Productos, "IdProducto", "IdProducto", detalleCompra.IdProducto);
             return View(detalleCompra);
         }
@@ -180,8 +175,7 @@ namespace MVCOBL.Controllers
             }
 
             var detalleCompra = await _context.DetalleCompras
-                .Include(d => d.IdCompraNavigation)
-                .Include(d => d.IdCotizacionNavigation)
+                .Include(d => d.IdCompraNavigation)              
                 .Include(d => d.IdProductoNavigation)
                 .FirstOrDefaultAsync(m => m.IdDetalleCompra == id);
             if (detalleCompra == null)

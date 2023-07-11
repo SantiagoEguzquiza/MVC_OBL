@@ -23,10 +23,10 @@ namespace MVCOBL.Models
         public long Timestamp { get; set; }
 
         [JsonProperty("source")]
-        public string Source { get; set; }
+        public string Source { get; set; }  //strign q dice USD
 
         [JsonProperty("quotes")]
-        public Quotes Quotes { get; set; }
+        public Quotes Quotes { get; set; } //decimal con el valor del dolar
     }
 
     public partial class Quotes

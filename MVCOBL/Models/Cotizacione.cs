@@ -7,15 +7,14 @@ namespace MVCOBL.Models
     {
         public Cotizacione()
         {
-            DetalleCompras = new HashSet<DetalleCompra>();
-            DetalleVenta = new HashSet<DetalleVentum>();
+            Productos = new HashSet<Producto>();
         }
 
         public int Id { get; set; }
         public string? TipoMoneda { get; set; }
-        public int? ValorMoneda { get; set; }
+        public DateTime? Fecha { get; set; }
+        public decimal? ValorMoneda { get; set; }
 
-        public virtual ICollection<DetalleCompra> DetalleCompras { get; set; }
-        public virtual ICollection<DetalleVentum> DetalleVenta { get; set; }
+        public virtual ICollection<Producto> Productos { get; set; }
     }
 }

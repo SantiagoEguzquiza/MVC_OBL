@@ -22,7 +22,7 @@ namespace MVCOBL.Controllers
         public VentasController(MVCOBLContext context)
         {
             _context = context;
-           
+
         }
 
         // GET: Ventas
@@ -33,6 +33,7 @@ namespace MVCOBL.Controllers
 
 
             var ventas = _context.Venta.ToList();
+            var Clientes = _context.Clientes.ToList();
             var Usuarios = _context.AspNetUsers.ToList();
 
 
@@ -47,13 +48,18 @@ namespace MVCOBL.Controllers
                 .Join(Usuarios, venta => venta.IdUsuario, usuario => usuario.Id, (venta, usuario) => new { venta, usuario })
                 .Select(x => new { x.venta.IdUsuario, x.usuario.UserName })
                 .ToList();
-         
+
+            var nombreClientes = ventas
+                .Join(Clientes, venta => venta.IdCliente, usuario => usuario.IdCliente, (venta, usuario) => new { venta, usuario })
+                .Select(x => new { x.venta.IdUsuario, x.usuario.Nombre })
+                .ToList();
+
             ViewBag.nombreUser = nombreUsuarios;
             ViewBag.venta = ventas;
-         
-            //Esta es una lista combinada 
-            var combinada = nombreUsuarios.Zip(ventas, (usuario, venta) => new { Nombre = usuario.UserName, Fecha = venta.FechaRegistro, Cliente = venta.IdCliente, Sucursal = venta.IdTienda, IdVenta = venta.IdVenta  });
 
+            //Esta es una lista combinada 
+            var combinada = nombreUsuarios.Zip(ventas, (usuario, venta) => new { Nombre = usuario.UserName, Cliente = venta.IdCliente, Fecha = venta.FechaRegistro, Sucursal = venta.IdTienda, IdVenta = venta.IdVenta });
+                                          
             ViewBag.combinada = combinada;
 
 
@@ -90,7 +96,7 @@ namespace MVCOBL.Controllers
         [Authorize(Roles = "Admin, Empleado")]
         public IActionResult Create()
 
-        {          
+        {
 
             ViewData["IdCliente"] = new SelectList(_context.Clientes, "IdCliente", "IdCliente");
             ViewData["IdTienda"] = new SelectList(_context.Tienda, "IdTienda", "IdTienda");

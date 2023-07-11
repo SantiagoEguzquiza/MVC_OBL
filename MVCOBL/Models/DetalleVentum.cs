@@ -14,7 +14,6 @@ namespace MVCOBL.Models
         public DateTime? FechaRegistro { get; set; }
         public int? IdCotizacion { get; set; }
 
-        public virtual Cotizacione? IdCotizacionNavigation { get; set; }
         public virtual Producto? IdProductoNavigation { get; set; }
         public virtual Ventum? IdVentaNavigation { get; set; }
     }

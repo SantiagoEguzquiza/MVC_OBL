@@ -15,7 +15,6 @@ namespace MVCOBL.Models
         public int? IdCotizacion { get; set; }
 
         public virtual Compra? IdCompraNavigation { get; set; }
-        public virtual Cotizacione? IdCotizacionNavigation { get; set; }
         public virtual Producto? IdProductoNavigation { get; set; }
     }
 }

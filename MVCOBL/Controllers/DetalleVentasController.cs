@@ -23,7 +23,7 @@ namespace MVCOBL.Controllers
         [Authorize]
         public async Task<IActionResult> Index()
         {
-            var mVCOBLContext = _context.DetalleVenta.Include(d => d.IdCotizacionNavigation).Include(d => d.IdProductoNavigation).Include(d => d.IdVentaNavigation);
+            var mVCOBLContext =_context.DetalleVenta.Include(d => d.IdProductoNavigation).Include(d => d.IdVentaNavigation);
             return View(await mVCOBLContext.ToListAsync());
         }
 
@@ -37,7 +37,7 @@ namespace MVCOBL.Controllers
             }
 
             var detalleVentum = await _context.DetalleVenta
-                .Include(d => d.IdCotizacionNavigation)
+                
                 .Include(d => d.IdProductoNavigation)
                 .Include(d => d.IdVentaNavigation)
                 .FirstOrDefaultAsync(m => m.IdDetalleVenta == id);
@@ -71,8 +71,7 @@ namespace MVCOBL.Controllers
             ViewBag.dato = dato;
 
 
-
-            ViewData["IdCotizacion"] = new SelectList(_context.Cotizaciones, "Id", "Id");
+         
             ViewData["IdProducto"] = new SelectList(_context.Productos, "IdProducto", "IdProducto");
             ViewData["IdVenta"] = new SelectList(_context.Venta, "IdVenta", "IdVenta", dato);
 
@@ -85,7 +84,7 @@ namespace MVCOBL.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin, Empleado")]
-        public async Task<IActionResult> Create([Bind("IdDetalleVenta,IdVenta,IdProducto,Cantidad,PrecioUnidad,ImporteTotal,FechaRegistro,IdCotizacion")] DetalleVentum detalleVentum)
+        public async Task<IActionResult> Create([Bind("IdDetalleVenta,IdVenta,IdProducto,Cantidad,PrecioUnidad,ImporteTotal,FechaRegistro")] DetalleVentum detalleVentum)
         {
             if (ModelState.IsValid)
             {
@@ -106,7 +105,7 @@ namespace MVCOBL.Controllers
 
             }
 
-            ViewData["IdCotizacion"] = new SelectList(_context.Cotizaciones, "Id", "Id", detalleVentum.IdCotizacion);
+
             ViewData["IdProducto"] = new SelectList(_context.Productos, "IdProducto", "IdProducto", detalleVentum.IdProducto);
             ViewData["IdVenta"] = new SelectList(_context.Venta, "IdVenta", "IdVenta", detalleVentum.IdVenta);
             return View(detalleVentum);
@@ -126,7 +125,6 @@ namespace MVCOBL.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdCotizacion"] = new SelectList(_context.Cotizaciones, "Id", "Id", detalleVentum.IdCotizacion);
             ViewData["IdProducto"] = new SelectList(_context.Productos, "IdProducto", "IdProducto", detalleVentum.IdProducto);
             ViewData["IdVenta"] = new SelectList(_context.Venta, "IdVenta", "IdVenta", detalleVentum.IdVenta);
             return View(detalleVentum);
@@ -138,7 +136,7 @@ namespace MVCOBL.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin, Empleado")]
-        public async Task<IActionResult> Edit(int id, [Bind("IdDetalleVenta,IdVenta,IdProducto,Cantidad,PrecioUnidad,ImporteTotal,FechaRegistro,IdCotizacion")] DetalleVentum detalleVentum)
+        public async Task<IActionResult> Edit(int id, [Bind("IdDetalleVenta,IdVenta,IdProducto,Cantidad,PrecioUnidad,ImporteTotal,FechaRegistro")] DetalleVentum detalleVentum)
         {
             if (id != detalleVentum.IdDetalleVenta)
             {
@@ -165,7 +163,6 @@ namespace MVCOBL.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdCotizacion"] = new SelectList(_context.Cotizaciones, "Id", "Id", detalleVentum.IdCotizacion);
             ViewData["IdProducto"] = new SelectList(_context.Productos, "IdProducto", "IdProducto", detalleVentum.IdProducto);
             ViewData["IdVenta"] = new SelectList(_context.Venta, "IdVenta", "IdVenta", detalleVentum.IdVenta);
             return View(detalleVentum);
@@ -180,8 +177,7 @@ namespace MVCOBL.Controllers
                 return NotFound();
             }
 
-            var detalleVentum = await _context.DetalleVenta
-                .Include(d => d.IdCotizacionNavigation)
+            var detalleVentum = await _context.DetalleVenta               
                 .Include(d => d.IdProductoNavigation)
                 .Include(d => d.IdVentaNavigation)
                 .FirstOrDefaultAsync(m => m.IdDetalleVenta == id);
