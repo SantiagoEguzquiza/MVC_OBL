@@ -35,14 +35,24 @@ namespace MVCOBL.Controllers
             //------------------------------------* API Obtener Cotizacion del dia *-------------------------------------------------------  
 
             API_COT cotizacion = new API_COT();
-            
-            var ultimaCotizacion = _context.Cotizaciones.OrderBy(x => x).LastOrDefault();        //Consultamos la ultima cotizacion que tengamos en la base
-            DateTime fechaActual = DateTime.Today;
+
+            var ultimaCotizacion = _context.Cotizaciones.OrderBy(x => x).LastOrDefault();
+
+            //Consultamos la ultima cotizacion que tengamos en la base
+
+            DateTime fechaActual = DateTime.Now;
+
+            DateTime fechaHoy = DateTime.Today;
+
+            DateTime? ultimaCot = DateTime.Today;
+            ultimaCot = ultimaCotizacion.Fecha;
 
 
-            if (ultimaCotizacion.Fecha != fechaActual)
+
+
+            if (fechaHoy != ultimaCot)
             {
-                
+
                 Cotizacione cota = new Cotizacione();
 
                 var resultado = cotizacion.GetCotizacion();                 //Aca trae el JSON de la API
@@ -63,7 +73,7 @@ namespace MVCOBL.Controllers
 
             //------------------------------------* API *-------------------------------------------------------
 
-           
+
 
             var categorias = _context.Categoria.ToList();
             var productos = _context.Productos.ToList();
@@ -73,7 +83,7 @@ namespace MVCOBL.Controllers
                 .Select(x => new { x.categorias.IdCategoria, x.usuario.Descripcion })
                 .ToList();
 
-            var combinada =  nombreCategorias.Zip(productos, (cate, prod) => (prod.IdProducto, prod.Codigo, prod.Nombre, prod.Descripcion, cate.Descripcion, prod.FechaRegistro, prod.Stock, prod.Precio, prod.ImagenUrl, prod.IdCotizacion, prod.Moneda));
+            var combinada = nombreCategorias.Zip(productos, (cate, prod) => (prod.IdProducto, prod.Codigo, prod.Nombre, prod.Descripcion, cate.Descripcion, prod.FechaRegistro, prod.Stock, prod.Precio, prod.ImagenUrl, prod.IdCotizacion, prod.Moneda));
 
             ViewBag.combinada = combinada;
 

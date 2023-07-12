@@ -219,10 +219,10 @@ namespace MVCOBL.Controllers
         public IActionResult VerFactura(int id)
 
         {
-            var cotizacion = _context.Cotizaciones.OrderBy(x => x).LastOrDefault();
-            var Venta = _context.Compras.Where(x => x.IdCompra == id).ToList();
+            
+            var Venta = _context.Compras.Where(x => x.IdCompra == id).FirstOrDefault();
             var ListaDetalle = _context.DetalleCompras.Where(x => x.IdCompra == id).ToList();
-
+            var cotizacion = _context.Cotizaciones.Where(x => x.Fecha == Venta.FechaRegistro).OrderBy(x => x).LastOrDefault();
             
 
             decimal? aux = 0;

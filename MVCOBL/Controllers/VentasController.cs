@@ -248,10 +248,44 @@ namespace MVCOBL.Controllers
         public IActionResult VerFactura(int id)
 
         {
-            var cotizacion = _context.Cotizaciones.OrderBy(x => x).LastOrDefault();
-            var Venta = _context.Venta.Where(x => x.IdVenta == id).ToList();
-            var ListaDetalle = _context.DetalleVenta.Where(x => x.IdVenta == id).ToList();
+            var Sucursales = _context.Tienda.ToList();
+            var ventas = _context.Venta.ToList();
+            var Clientes = _context.Clientes.ToList();
+            var Usuarios = _context.AspNetUsers.ToList();
 
+
+
+            //Esto es un inner join el nombre de usuario por cada venta existente, basicamente replica la lista ventas y en cada idUsuario te lo iguala al nombre.
+            //Generando una lista con la misma cantidad que la de ventas pero en cada objeto solo tiene el nombre
+
+            var nombreUsuarios = ventas
+                .Join(Usuarios, venta => venta.IdUsuario, usuario => usuario.Id, (venta, usuario) => new { venta, usuario })
+                .Select(x => new { x.venta.IdUsuario, x.usuario.UserName })
+                .ToList();
+
+            var nombreClientes = ventas
+                .Join(Clientes, venta => venta.IdCliente, x => x.IdCliente, (venta, x) => new { venta, x })
+                .Select(x => new { x.venta.IdUsuario, x.x.Nombre })
+                .ToList();
+
+            var nombreSucursales = ventas
+                .Join(Sucursales, venta => venta.IdTienda, x => x.IdTienda, (venta, x) => new { venta, x })
+                .Select(x => new { x.venta.IdTienda, x.x.Nombre })
+                .ToList();
+
+
+            var resultado = ventas.Zip(nombreUsuarios, (venta, user) => (user.UserName, venta.IdCliente, venta.IdTienda, venta.FechaRegistro, venta.IdVenta))
+                                  .Zip(nombreClientes, (ventauser, cliente) => (ventauser.UserName, cliente.Nombre, ventauser.IdTienda, ventauser.FechaRegistro, ventauser.IdVenta))
+                                  .Zip(nombreSucursales, (ventausercliente, sucursal) => (ventausercliente.UserName, ventausercliente.Nombre, sucursal.Nombre, ventausercliente.FechaRegistro, ventausercliente.IdVenta));
+
+            ViewBag.combinada = resultado;
+
+
+            //------------------------------------------------------------------------------------
+            
+            var Venta = _context.Venta.Where(x => x.IdVenta == id).FirstOrDefault();
+            var ListaDetalle = _context.DetalleVenta.Where(x => x.IdVenta == id).ToList();
+            var cotizacion = _context.Cotizaciones.Where(x => x.Fecha == Venta.FechaRegistro).OrderBy(x => x).LastOrDefault();
 
 
             decimal? aux = 0;
