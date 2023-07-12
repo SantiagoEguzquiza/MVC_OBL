@@ -64,6 +64,7 @@ namespace MVCOBL.Controllers
                 var dolarDouble = Convert.ToDecimal(dolar.Usduyu);
 
                 cota.Fecha = fechaActual;
+                cota.FechaSinHora = fechaHoy;
                 cota.ValorMoneda = dolarDouble;
                 cota.TipoMoneda = cotizacionActual.Source;
 

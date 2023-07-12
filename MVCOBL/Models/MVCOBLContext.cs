@@ -217,6 +217,8 @@ namespace MVCOBL.Models
 
                 entity.Property(e => e.Fecha).HasColumnType("datetime");
 
+                entity.Property(e => e.FechaSinHora).HasColumnType("date");
+
                 entity.Property(e => e.TipoMoneda)
                     .HasMaxLength(50)
                     .IsUnicode(false);

@@ -174,7 +174,14 @@ namespace MVCOBL.Controllers
         {
 
             API_COT cotizacion = new API_COT();
-            DateTime fechaActual = DateTime.Today;
+
+            DateTime fechaActual = DateTime.Now;
+            DateTime fechaHoy = DateTime.Today;
+           
+
+
+
+
             Cotizacione cota = new Cotizacione();
 
             var resultado = cotizacion.GetCotizacion();                 //Aca trae el JSON de la API
@@ -184,6 +191,7 @@ namespace MVCOBL.Controllers
             var dolarDouble = Convert.ToDecimal(dolar.Usduyu);
 
             cota.Fecha = fechaActual;
+            cota.FechaSinHora = fechaHoy;
             cota.ValorMoneda = dolarDouble;
             cota.TipoMoneda = cotizacionActual.Source;
 

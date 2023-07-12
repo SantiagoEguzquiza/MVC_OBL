@@ -14,6 +14,7 @@ namespace MVCOBL.Models
         public string? TipoMoneda { get; set; }
         public decimal? ValorMoneda { get; set; }
         public DateTime Fecha { get; set; }
+        public DateTime FechaSinHora { get; set; }
 
         public virtual ICollection<Producto> Productos { get; set; }
     }

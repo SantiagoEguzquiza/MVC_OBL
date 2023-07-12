@@ -15,7 +15,7 @@ namespace MVCOBL.Models
         public string? IdUsuario { get; set; }
         public int? IdCliente { get; set; }
         public decimal? TotalCosto { get; set; }
-        public DateTime? FechaRegistro { get; set; }
+        public DateTime FechaRegistro { get; set; }
 
         public virtual Cliente? IdClienteNavigation { get; set; }
         public virtual Tiendum? IdTiendaNavigation { get; set; }

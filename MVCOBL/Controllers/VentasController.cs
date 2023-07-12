@@ -59,7 +59,7 @@ namespace MVCOBL.Controllers
 
             var resultado = ventas.Zip(nombreUsuarios, (venta, user) => (user.UserName, venta.IdCliente, venta.IdTienda, venta.FechaRegistro, venta.IdVenta))
                                   .Zip(nombreClientes, (ventauser, cliente) => (ventauser.UserName, cliente.Nombre, ventauser.IdTienda, ventauser.FechaRegistro, ventauser.IdVenta))
-                                  .Zip(nombreSucursales, (ventausercliente, sucursal) => (ventausercliente.UserName, ventausercliente.Nombre, sucursal.Nombre, ventausercliente.FechaRegistro, ventausercliente.IdVenta)) ;
+                                  .Zip(nombreSucursales, (ventausercliente, sucursal) => (ventausercliente.UserName, ventausercliente.Nombre, sucursal.Nombre, ventausercliente.FechaRegistro, ventausercliente.IdVenta));
 
             ViewBag.combinada = resultado;
 
@@ -282,10 +282,19 @@ namespace MVCOBL.Controllers
 
 
             //------------------------------------------------------------------------------------
-            
+
+
+
+
             var Venta = _context.Venta.Where(x => x.IdVenta == id).FirstOrDefault();
             var ListaDetalle = _context.DetalleVenta.Where(x => x.IdVenta == id).ToList();
-            var cotizacion = _context.Cotizaciones.Where(x => x.Fecha == Venta.FechaRegistro).OrderBy(x => x).LastOrDefault();
+
+            TimeSpan newTime = new TimeSpan(0, 0, 0);
+            var ultimaFecha = Venta.FechaRegistro;
+            ultimaFecha = ultimaFecha.Date + newTime;
+
+
+            var cotizacion = _context.Cotizaciones.Where(x => x.FechaSinHora == ultimaFecha).OrderBy(x => x.Fecha).LastOrDefault();
 
 
             decimal? aux = 0;
