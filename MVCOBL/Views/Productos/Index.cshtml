@@ -4,11 +4,11 @@
 	ViewData["Title"] = "Index";
 }
 
-<h1>Agregar productos</h1>
+<h1>Productos</h1>
 @if (User.IsInRole("Admin"))
 {
 	<p>
-		<a asp-action="Create" class="btn btn-primary">Crear</a>
+		<a asp-action="Create" class="btn btn-primary">Agregar producto</a>
 	</p>
 }
 <table class="table">

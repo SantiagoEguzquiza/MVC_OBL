@@ -36,8 +36,7 @@
                 <td>@dato.Item2</td>
                 <td>@dato.Item3</td>
                 <td>
-                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@dato.Item4">Editar</a>
-                    <a asp-action="Details" class="btn btn-primary" asp-route-id="@dato.Item4">Detalles</a>
+      
                     @if (User.IsInRole("Admin"))
                     {
                         <a asp-action="Delete" class="btn btn-danger" asp-route-id="@dato.Item4">Borrar</a>
