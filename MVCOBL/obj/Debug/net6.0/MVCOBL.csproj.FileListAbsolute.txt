@@ -769,3 +769,5 @@ C:\Users\santi\Desktop\Carrera\MVC_OBL\MVCOBL\obj\Debug\net6.0\MVCOBL.genruntime
 C:\Users\santi\Desktop\Carrera\MVC_OBL\MVCOBL\obj\Debug\net6.0\ref\MVCOBL.dll
 C:\Users\santi\Desktop\Carrera\MVC_OBL\MVCOBL\bin\Debug\net6.0\API.dll
 C:\Users\santi\Desktop\Carrera\MVC_OBL\MVCOBL\bin\Debug\net6.0\API.pdb
+C:\Users\pipi2\OneDrive\Escritorio\Programacion lll\MVC_OBL\MVCOBL\bin\Debug\net6.0\API.dll
+C:\Users\pipi2\OneDrive\Escritorio\Programacion lll\MVC_OBL\MVCOBL\bin\Debug\net6.0\API.pdb

@@ -48,9 +48,9 @@ namespace MVCOBL.Controllers
             return View(compra);
         }
 
-		// GET: Compras/Create
-		[Authorize(Roles = "Admin, Empleado")]
-		public IActionResult Create()
+        // GET: Compras/Create
+        [Authorize(Roles = "Admin, Empleado")]
+        public IActionResult Create()
         {
             ViewData["IdTienda"] = new SelectList(_context.Tienda, "IdTienda", "IdTienda");
             ViewData["IdUsuario"] = new SelectList(_context.AspNetUsers, "Id", "Id");
@@ -62,23 +62,23 @@ namespace MVCOBL.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-		[Authorize(Roles = "Admin, Empleado")]
-		public async Task<IActionResult> Create([Bind("IdCompra,IdUsuario,IdTienda,TotalCosto,TipoComprobante,FechaRegistro")] Compra compra)
+        [Authorize(Roles = "Admin, Empleado")]
+        public async Task<IActionResult> Create([Bind("IdCompra,IdUsuario,IdTienda,TotalCosto,TipoComprobante,FechaRegistro")] Compra compra)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(compra);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Create", "DetalleCompras", new {valor = compra.IdCompra});
+                return RedirectToAction("Create", "DetalleCompras", new { valor = compra.IdCompra });
             }
             ViewData["IdTienda"] = new SelectList(_context.Tienda, "IdTienda", "IdTienda", compra.IdTienda);
             ViewData["IdUsuario"] = new SelectList(_context.AspNetUsers, "Id", "Id", compra.IdUsuario);
             return View(compra);
         }
 
-		// GET: Compras/Edit/5
-		[Authorize(Roles = "Admin, Empleado")]
-		public async Task<IActionResult> Edit(int? id)
+        // GET: Compras/Edit/5
+        [Authorize(Roles = "Admin, Empleado")]
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Compras == null)
             {
@@ -100,8 +100,8 @@ namespace MVCOBL.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-		[Authorize(Roles = "Admin, Empleado")]
-		public async Task<IActionResult> Edit(int id, [Bind("IdCompra,IdUsuario,IdTienda,TotalCosto,TipoComprobante,FechaRegistro")] Compra compra)
+        [Authorize(Roles = "Admin, Empleado")]
+        public async Task<IActionResult> Edit(int id, [Bind("IdCompra,IdUsuario,IdTienda,TotalCosto,TipoComprobante,FechaRegistro")] Compra compra)
         {
             if (id != compra.IdCompra)
             {
@@ -133,9 +133,9 @@ namespace MVCOBL.Controllers
             return View(compra);
         }
 
-		// GET: Compras/Delete/5
-		[Authorize(Roles = "Admin")]
-		public async Task<IActionResult> Delete(int? id)
+        // GET: Compras/Delete/5
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Compras == null)
             {
@@ -157,26 +157,35 @@ namespace MVCOBL.Controllers
         // POST: Compras/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-		[Authorize(Roles = "Admin")]
-		public async Task<IActionResult> DeleteConfirmed(int id)
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Compras == null)
             {
                 return Problem("Entity set 'MVCOBLContext.Compras'  is null.");
             }
             var compra = await _context.Compras.FindAsync(id);
+            var listaDetalles = _context.DetalleCompras.Where(x => x.IdCompra == id);
+
             if (compra != null)
             {
+                if (listaDetalles != null)
+                {
+                    foreach (var x in listaDetalles)
+                    {
+                        _context.DetalleCompras.Remove(x);
+                    }
+                }
                 _context.Compras.Remove(compra);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool CompraExists(int id)
         {
-          return (_context.Compras?.Any(e => e.IdCompra == id)).GetValueOrDefault();
+            return (_context.Compras?.Any(e => e.IdCompra == id)).GetValueOrDefault();
         }
 
         public IActionResult VerFactura(int id)
