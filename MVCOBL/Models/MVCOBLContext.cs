@@ -38,7 +38,7 @@ namespace MVCOBL.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-OK60JF3; Database= MVCOBL;Integrated Security=True; TrustServerCertificate=True");
+                optionsBuilder.UseSqlServer("Data Source=LAUTARO; Database= MVCOBL;Integrated Security=True; TrustServerCertificate=True");
             }
         }
 
@@ -141,7 +141,7 @@ namespace MVCOBL.Models
             modelBuilder.Entity<Categorium>(entity =>
             {
                 entity.HasKey(e => e.IdCategoria)
-                    .HasName("PK__CATEGORI__A3C02A105058EAE2");
+                    .HasName("PK__CATEGORI__A3C02A10B0A83639");
 
                 entity.ToTable("CATEGORIA");
 
@@ -153,7 +153,7 @@ namespace MVCOBL.Models
             modelBuilder.Entity<Cliente>(entity =>
             {
                 entity.HasKey(e => e.IdCliente)
-                    .HasName("PK__CLIENTE__D5946642AE8012B2");
+                    .HasName("PK__CLIENTE__D59466426222E3A9");
 
                 entity.ToTable("CLIENTE");
 
@@ -181,7 +181,7 @@ namespace MVCOBL.Models
             modelBuilder.Entity<Compra>(entity =>
             {
                 entity.HasKey(e => e.IdCompra)
-                    .HasName("PK__COMPRA__0A5CDB5CA0C3D992");
+                    .HasName("PK__COMPRA__0A5CDB5C7EEE7C1F");
 
                 entity.ToTable("COMPRA");
 
@@ -227,7 +227,7 @@ namespace MVCOBL.Models
             modelBuilder.Entity<DetalleCompra>(entity =>
             {
                 entity.HasKey(e => e.IdDetalleCompra)
-                    .HasName("PK__DETALLE___E046CCBBA85EE6F5");
+                    .HasName("PK__DETALLE___E046CCBB39368F9C");
 
                 entity.ToTable("DETALLE_COMPRA");
 
@@ -251,13 +251,13 @@ namespace MVCOBL.Models
                 entity.HasOne(d => d.IdProductoNavigation)
                     .WithMany(p => p.DetalleCompras)
                     .HasForeignKey(d => d.IdProducto)
-                    .HasConstraintName("FK__DETALLE_C__IdPro__6E01572D");
+                    .HasConstraintName("FK__DETALLE_C__IdPro__6D0D32F4");
             });
 
             modelBuilder.Entity<DetalleVentum>(entity =>
             {
                 entity.HasKey(e => e.IdDetalleVenta)
-                    .HasName("PK__DETALLE___AAA5CEC2BD5EDF12");
+                    .HasName("PK__DETALLE___AAA5CEC213277DC9");
 
                 entity.ToTable("DETALLE_VENTA");
 
@@ -276,18 +276,18 @@ namespace MVCOBL.Models
                 entity.HasOne(d => d.IdProductoNavigation)
                     .WithMany(p => p.DetalleVenta)
                     .HasForeignKey(d => d.IdProducto)
-                    .HasConstraintName("FK__DETALLE_V__IdPro__6FE99F9F");
+                    .HasConstraintName("FK__DETALLE_V__IdPro__6E01572D");
 
                 entity.HasOne(d => d.IdVentaNavigation)
                     .WithMany(p => p.DetalleVenta)
                     .HasForeignKey(d => d.IdVenta)
-                    .HasConstraintName("FK__DETALLE_V__IdVen__70DDC3D8");
+                    .HasConstraintName("FK__DETALLE_V__IdVen__6EF57B66");
             });
 
             modelBuilder.Entity<Producto>(entity =>
             {
                 entity.HasKey(e => e.IdProducto)
-                    .HasName("PK__PRODUCTO__09889210124C81ED");
+                    .HasName("PK__PRODUCTO__09889210643C9804");
 
                 entity.ToTable("PRODUCTO");
 
@@ -320,18 +320,18 @@ namespace MVCOBL.Models
                 entity.HasOne(d => d.IdCategoriaNavigation)
                     .WithMany(p => p.Productos)
                     .HasForeignKey(d => d.IdCategoria)
-                    .HasConstraintName("FK__PRODUCTO__IdCate__71D1E811");
+                    .HasConstraintName("FK__PRODUCTO__IdCate__6FE99F9F");
 
                 entity.HasOne(d => d.IdCotizacionNavigation)
                     .WithMany(p => p.Productos)
                     .HasForeignKey(d => d.IdCotizacion)
-                    .HasConstraintName("FK__PRODUCTO__IdCoti__0B91BA14");
+                    .HasConstraintName("FK__PRODUCTO__IdCoti__70DDC3D8");
             });
 
             modelBuilder.Entity<ProductoTiendum>(entity =>
             {
                 entity.HasKey(e => e.IdProductoTienda)
-                    .HasName("PK__PRODUCTO__CE9B4C833423FBB8");
+                    .HasName("PK__PRODUCTO__CE9B4C83A4889FB1");
 
                 entity.ToTable("PRODUCTO_TIENDA");
 
@@ -350,18 +350,18 @@ namespace MVCOBL.Models
                 entity.HasOne(d => d.IdProductoNavigation)
                     .WithMany(p => p.ProductoTienda)
                     .HasForeignKey(d => d.IdProducto)
-                    .HasConstraintName("FK__PRODUCTO___IdPro__72C60C4A");
+                    .HasConstraintName("FK__PRODUCTO___IdPro__71D1E811");
 
                 entity.HasOne(d => d.IdTiendaNavigation)
                     .WithMany(p => p.ProductoTienda)
                     .HasForeignKey(d => d.IdTienda)
-                    .HasConstraintName("FK__PRODUCTO___IdTie__73BA3083");
+                    .HasConstraintName("FK__PRODUCTO___IdTie__72C60C4A");
             });
 
             modelBuilder.Entity<Tiendum>(entity =>
             {
                 entity.HasKey(e => e.IdTienda)
-                    .HasName("PK__TIENDA__5A1EB96B73C8EBE5");
+                    .HasName("PK__TIENDA__5A1EB96BAA98E38B");
 
                 entity.ToTable("TIENDA");
 
@@ -390,7 +390,7 @@ namespace MVCOBL.Models
             modelBuilder.Entity<Ventum>(entity =>
             {
                 entity.HasKey(e => e.IdVenta)
-                    .HasName("PK__VENTA__BC1240BD89BE04A5");
+                    .HasName("PK__VENTA__BC1240BDB1A49A07");
 
                 entity.ToTable("VENTA");
 
@@ -405,17 +405,17 @@ namespace MVCOBL.Models
                 entity.HasOne(d => d.IdClienteNavigation)
                     .WithMany(p => p.Venta)
                     .HasForeignKey(d => d.IdCliente)
-                    .HasConstraintName("FK__VENTA__IdCliente__74AE54BC");
+                    .HasConstraintName("FK__VENTA__IdCliente__73BA3083");
 
                 entity.HasOne(d => d.IdTiendaNavigation)
                     .WithMany(p => p.Venta)
                     .HasForeignKey(d => d.IdTienda)
-                    .HasConstraintName("FK__VENTA__IdTienda__75A278F5");
+                    .HasConstraintName("FK__VENTA__IdTienda__74AE54BC");
 
                 entity.HasOne(d => d.IdUsuarioNavigation)
                     .WithMany(p => p.Venta)
                     .HasForeignKey(d => d.IdUsuario)
-                    .HasConstraintName("FK__VENTA__IdUsuario__76969D2E");
+                    .HasConstraintName("FK__VENTA__IdUsuario__75A278F5");
             });
 
             OnModelCreatingPartial(modelBuilder);

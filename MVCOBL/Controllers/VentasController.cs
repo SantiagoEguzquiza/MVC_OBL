@@ -218,9 +218,19 @@ namespace MVCOBL.Controllers
             {
                 return Problem("Entity set 'MVCOBLContext.Venta'  is null.");
             }
+
             var ventum = await _context.Venta.FindAsync(id);
+            var listaDetalles = _context.DetalleVenta.Where(x => x.IdVenta == id);
+
             if (ventum != null)
             {
+                if(listaDetalles != null)
+                {
+                    foreach (var x in listaDetalles)
+                    {
+                        _context.DetalleVenta.Remove(x);
+                    }
+                }
                 _context.Venta.Remove(ventum);
             }
 
