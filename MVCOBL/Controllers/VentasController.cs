@@ -31,14 +31,11 @@ namespace MVCOBL.Controllers
         {
 
 
-
+            var Sucursales = _context.Tienda.ToList();
             var ventas = _context.Venta.ToList();
             var Clientes = _context.Clientes.ToList();
             var Usuarios = _context.AspNetUsers.ToList();
 
-
-            //var currentUser = _context.AspNetUsers.FirstOrDefault();
-            //ViewBag.CurrentUser = currentUser.Id;
 
 
             //Esto es un inner join el nombre de usuario por cada venta existente, basicamente replica la lista ventas y en cada idUsuario te lo iguala al nombre.
@@ -50,20 +47,21 @@ namespace MVCOBL.Controllers
                 .ToList();
 
             var nombreClientes = ventas
-                .Join(Clientes, venta => venta.IdCliente, usuario => usuario.IdCliente, (venta, usuario) => new { venta, usuario })
-                .Select(x => new { x.venta.IdUsuario, x.usuario.Nombre })
+                .Join(Clientes, venta => venta.IdCliente, x => x.IdCliente, (venta, x) => new { venta, x })
+                .Select(x => new { x.venta.IdUsuario, x.x.Nombre })
                 .ToList();
 
-            ViewBag.nombreUser = nombreUsuarios;
-            ViewBag.venta = ventas;
+            var nombreSucursales = ventas
+                .Join(Sucursales, venta => venta.IdTienda, x => x.IdTienda, (venta, x) => new { venta, x })
+                .Select(x => new { x.venta.IdTienda, x.x.Nombre })
+                .ToList();
 
-            //Esta es una lista combinada 
-            var combinada = nombreUsuarios.Zip(ventas, (usuario, venta) => new { Nombre = usuario.UserName, Cliente = venta.IdCliente, Fecha = venta.FechaRegistro, Sucursal = venta.IdTienda, IdVenta = venta.IdVenta });
 
-            //var resultado = ventas.Zip(nombreUsuarios, (venta, user) => new { venta.IdUsuario, venta.IdCliente, user.UserName })
-            //               .Zip(nombreClientes, (item, item2) => new { item2.Nombre, item., item.Item2 });
+            var resultado = ventas.Zip(nombreUsuarios, (venta, user) => (user.UserName, venta.IdCliente, venta.IdTienda, venta.FechaRegistro, venta.IdVenta))
+                                  .Zip(nombreClientes, (ventauser, cliente) => (ventauser.UserName, cliente.Nombre, ventauser.IdTienda, ventauser.FechaRegistro, ventauser.IdVenta))
+                                  .Zip(nombreSucursales, (ventausercliente, sucursal) => (ventausercliente.UserName, ventausercliente.Nombre, sucursal.Nombre, ventausercliente.FechaRegistro, ventausercliente.IdVenta)) ;
 
-            ViewBag.combinada = combinada;
+            ViewBag.combinada = resultado;
 
 
 
@@ -227,7 +225,7 @@ namespace MVCOBL.Controllers
 
             if (ventum != null)
             {
-                if(listaDetalles != null)
+                if (listaDetalles != null)
                 {
                     foreach (var x in listaDetalles)
                     {

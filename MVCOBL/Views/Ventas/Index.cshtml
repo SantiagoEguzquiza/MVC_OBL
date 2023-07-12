@@ -35,18 +35,18 @@
         {
             <tr>
 
-                <td>@dato.Nombre</td>
-                <td>@dato.Cliente</td>
-                <td>@dato.Sucursal</td>
-                <td>@dato.Fecha</td>
+                <td>@dato.Item1</td>
+                <td>@dato.Item2</td>
+                <td>@dato.Item3</td>
+                <td>@dato.Item4</td>
                 <td>
-                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@dato.IdVenta">Editar</a>
-                    <a asp-action="Details" class="btn btn-primary" asp-route-id="@dato.IdVenta">Detalles</a>
+                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@dato.Item5">Editar</a>
+                    <a asp-action="Details" class="btn btn-primary" asp-route-id="@dato.Item5">Detalles</a>
                     @if (User.IsInRole("Admin"))
                     {
-                        <a asp-action="Delete" class="btn btn-danger" asp-route-id="@dato.IdVenta">Borrar</a>
+                        <a asp-action="Delete" class="btn btn-danger" asp-route-id="@dato.Item5">Borrar</a>
                     }
-                    <a asp-action="VerFactura" class="btn btn-success" asp-route-id="@dato.IdVenta">Factura</a>
+                    <a asp-action="VerFactura" class="btn btn-success" asp-route-id="@dato.Item5">Factura</a>
                 </td>
             </tr>
 
