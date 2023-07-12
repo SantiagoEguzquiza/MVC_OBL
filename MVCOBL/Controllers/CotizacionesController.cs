@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MVCOBL.Models;
 using Microsoft.AspNetCore.Authorization;
+using API;
+using Newtonsoft.Json;
 
 namespace MVCOBL.Controllers
 {
@@ -166,6 +168,29 @@ namespace MVCOBL.Controllers
         private bool CotizacioneExists(int id)
         {
           return (_context.Cotizaciones?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
+
+        public IActionResult actCotizaciones()
+        {
+
+            API_COT cotizacion = new API_COT();
+            DateTime fechaActual = DateTime.Today;
+            Cotizacione cota = new Cotizacione();
+
+            var resultado = cotizacion.GetCotizacion();                 //Aca trae el JSON de la API
+            var cotizacionActual = JsonConvert.DeserializeObject<COTIZACION>(resultado);
+            var dolar = cotizacionActual.Quotes;
+
+            var dolarDouble = Convert.ToDecimal(dolar.Usduyu);
+
+            cota.Fecha = fechaActual;
+            cota.ValorMoneda = dolarDouble;
+            cota.TipoMoneda = cotizacionActual.Source;
+
+            _context.Add(cota);
+            _context.SaveChanges();
+            return RedirectToAction(nameof(Index));
+
         }
     }
 }

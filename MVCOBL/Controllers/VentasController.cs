@@ -59,7 +59,10 @@ namespace MVCOBL.Controllers
 
             //Esta es una lista combinada 
             var combinada = nombreUsuarios.Zip(ventas, (usuario, venta) => new { Nombre = usuario.UserName, Cliente = venta.IdCliente, Fecha = venta.FechaRegistro, Sucursal = venta.IdTienda, IdVenta = venta.IdVenta });
-                                          
+
+            //var resultado = ventas.Zip(nombreUsuarios, (venta, user) => new { venta.IdUsuario, venta.IdCliente, user.UserName })
+            //               .Zip(nombreClientes, (item, item2) => new { item2.Nombre, item., item.Item2 });
+
             ViewBag.combinada = combinada;
 
 

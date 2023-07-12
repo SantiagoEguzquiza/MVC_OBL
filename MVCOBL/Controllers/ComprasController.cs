@@ -23,6 +23,28 @@ namespace MVCOBL.Controllers
         [Authorize]
         public async Task<IActionResult> Index()
         {
+
+            var ventas = _context.Compras.ToList();
+            var Clientes = _context.Clientes.ToList();
+            var Usuarios = _context.AspNetUsers.ToList();
+
+            var nombreUsuarios = ventas
+                .Join(Usuarios, venta => venta.IdUsuario, usuario => usuario.Id, (venta, usuario) => new { venta, usuario })
+                .Select(x => new { x.venta.IdUsuario, x.usuario.UserName })
+                .ToList();
+
+
+            ViewBag.nombreUser = nombreUsuarios;
+            ViewBag.venta = ventas;
+
+            //Esta es una lista combinada 
+            var combinada = nombreUsuarios.Zip(ventas, (usuario, venta) => new { Nombre = usuario.UserName, Fecha = venta.FechaRegistro, Sucursal = venta.IdTienda, IdVenta = venta.IdCompra });
+
+
+
+            ViewBag.combinada = combinada;
+
+
             var mVCOBLContext = _context.Compras.Include(c => c.IdTiendaNavigation).Include(c => c.IdUsuarioNavigation);
             return View(await mVCOBLContext.ToListAsync());
         }
