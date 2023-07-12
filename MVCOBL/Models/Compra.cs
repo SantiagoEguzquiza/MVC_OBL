@@ -15,7 +15,7 @@ namespace MVCOBL.Models
         public int? IdTienda { get; set; }
         public decimal? TotalCosto { get; set; }
         public string? TipoComprobante { get; set; }
-        public DateTime? FechaRegistro { get; set; }
+        public DateTime FechaRegistro { get; set; }
 
         public virtual Tiendum? IdTiendaNavigation { get; set; }
         public virtual AspNetUser? IdUsuarioNavigation { get; set; }

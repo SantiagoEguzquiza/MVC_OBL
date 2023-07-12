@@ -217,27 +217,68 @@ namespace MVCOBL.Controllers
         }
 
         public IActionResult VerFactura(int id)
-
         {
-            
-            var Venta = _context.Compras.Where(x => x.IdCompra == id).FirstOrDefault();
+			var Sucursales = _context.Tienda.ToList();
+			var compras = _context.Compras.ToList();
+			var Clientes = _context.Clientes.ToList();
+			var Usuarios = _context.AspNetUsers.ToList();
+
+			var nombreUsuarios = compras
+			   .Join(Usuarios, compras => compras.IdUsuario, usuario => usuario.Id, (compras, usuario) => new { compras, usuario })
+			   .Select(x => new { x.compras.IdUsuario, x.usuario.UserName })
+			   .ToList();
+
+			var nombreSucursales = compras
+			   .Join(Sucursales, compra => compra.IdTienda, x => x.IdTienda, (compra, x) => new { compra, x })
+			   .Select(x => new { x.compra.IdTienda, x.x.Nombre })
+			   .ToList();
+
+			var resultado = compras.Zip(nombreUsuarios, (compra, user) => (user.UserName, compra.IdTienda , compra.IdTienda, compra.FechaRegistro, compra.IdCompra))
+								   .Zip(nombreSucursales, (ventauser, sucursal) => (ventauser.UserName, ventauser.IdCompra, sucursal.Nombre, ventauser.FechaRegistro, ventauser.IdCompra));
+
+            ViewBag.combinada = resultado;
+
+			var datos = resultado.Where(x => x.Item2 == id).FirstOrDefault();
+
+			ViewBag.Usuario = datos.UserName;
+			ViewBag.Fecha = datos.FechaRegistro;
+			ViewBag.Sucursal = datos.Item3;
+			ViewBag.Factura = datos.Item2;
+
+			//-----------------------------------------------------------------------------------------------------------------------------
+
+			var Compra = _context.Compras.Where(x => x.IdCompra == id).FirstOrDefault();
             var ListaDetalle = _context.DetalleCompras.Where(x => x.IdCompra == id).ToList();
-            var cotizacion = _context.Cotizaciones.Where(x => x.Fecha == Venta.FechaRegistro).OrderBy(x => x).LastOrDefault();
+
+			var productos = _context.Productos.ToList();
+
+			var nombreProducto = ListaDetalle
+				.Join(productos, productos => productos.IdProducto, detalle => detalle.IdProducto, (productos, detalle) => new { productos, detalle })
+				.Select(x => new { x.productos.IdProducto, x.detalle.Nombre })
+				.ToList();
+
+			var combinada = ListaDetalle.Zip(nombreProducto, (deta, prod) => (prod.Nombre, deta.Cantidad, deta.PrecioUnitarioCompra, deta.Moneda, deta.TotalCosto));
+
+			ViewBag.combinada2 = combinada;
+
+			TimeSpan newTime = new TimeSpan(0, 0, 0);
+			var ultimaFecha = Compra.FechaRegistro;
+			ultimaFecha = ultimaFecha.Date + newTime;
+			
+            var cotizacion = _context.Cotizaciones.Where(x => x.FechaSinHora == ultimaFecha).OrderBy(x => x).LastOrDefault();
+
+			decimal? aux = 0;
             
 
-            decimal? aux = 0;
-            
-
-            foreach (var venta in ListaDetalle)
+            foreach (var compra in combinada)
             {
-                aux += venta.TotalCosto;
+                aux += compra.TotalCosto;
             }
 
-            ViewBag.Compra = Venta;
+            ViewBag.Compra = Compra;
             ViewBag.ListaDetalleCompra = ListaDetalle;
             ViewBag.TotalCompra = aux;
             ViewBag.Cotizacion = cotizacion.ValorMoneda;
-
 
             return View();
         }
