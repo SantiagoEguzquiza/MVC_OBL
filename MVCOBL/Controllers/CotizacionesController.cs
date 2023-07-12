@@ -26,7 +26,7 @@ namespace MVCOBL.Controllers
         public async Task<IActionResult> Index()
         {
               return _context.Cotizaciones != null ? 
-                          View(await _context.Cotizaciones.ToListAsync()) :
+                          View(await _context.Cotizaciones.Where(x => x.TipoMoneda == "USD").ToListAsync()) :
                           Problem("Entity set 'MVCOBLContext.Cotizaciones'  is null.");
         }
 

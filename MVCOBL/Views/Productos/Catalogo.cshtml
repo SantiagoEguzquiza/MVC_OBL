@@ -2,87 +2,87 @@
 
 
 @{
-	ViewData["Title"] = "Agregar productos";
+    ViewData["Title"] = "Agregar productos";
 }
 
 <h1>Catalogo de productos</h1>
 
 
 <table class="table">
-	<thead>
-		<tr>
-			@*<th>
-				@Html.DisplayNameFor(model => model.IdProducto)
-			</th>*@
-			<th>
-				@Html.DisplayNameFor(model => model.Codigo)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.Nombre)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.Descripcion)
-			</th>
-@*			<th>
-				@Html.DisplayNameFor(model => model.FechaRegistro)
-			</th>*@
-			<th>
-				@Html.DisplayNameFor(model => model.Stock)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.Precio)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.Moneda)
-			</th>
-		@*	<th>
-				@Html.DisplayNameFor(model => model.IdCategoriaNavigation)
-			</th>*@
-			<th>
-				@Html.DisplayNameFor(model => model.ImagenUrl)
-			</th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-		@foreach (var item in Model)
-		{
-			<tr>
-				@*<th scope="row">
-			
-				</th>*@
-			@*	<td>
-					@Html.DisplayFor(modelItem => item.IdProducto)
-				</td>*@
-				<td>
-					@Html.DisplayFor(modelItem => item.Codigo)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Nombre)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Descripcion)
-				</td>
-@*				<td>
-					@Html.DisplayFor(modelItem => item.FechaRegistro)
-				</td>*@
-				<td>
-					@Html.DisplayFor(modelItem => item.Stock)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Precio)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Moneda)
-				</td>
-@*				<td>
-					@Html.DisplayFor(modelItem => item.IdCategoriaNavigation.IdCategoria)
-				</td>*@
-				<td>
-					<img src="~/imagenes/@item.ImagenUrl" alt="" width="150px" height="100px">
-				</td>
+    <thead>
+        <tr>
+            @*<th>
+            @Html.DisplayNameFor(model => model.IdProducto)
+            </th>*@
+            @*<th>
+            @Html.DisplayNameFor(model => model.Codigo)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            @*			<th>
+            @Html.DisplayNameFor(model => model.FechaRegistro)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Stock)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Precio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Moneda)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdCategoriaNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImagenUrl)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                @*<th scope="row">
 
-			</tr>
-		}
-	</tbody>
+            </th>*@
+                @*	<td>
+            @Html.DisplayFor(modelItem => item.IdProducto)
+            </td>*@
+                @*  <td>
+            @Html.DisplayFor(modelItem => item.Codigo)
+            </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                @*				<td>
+            @Html.DisplayFor(modelItem => item.FechaRegistro)
+            </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Stock)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Precio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Moneda)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdCategoriaNavigation.IdCategoria)
+                </td>
+                <td>
+                    <img src="~/imagenes/@item.ImagenUrl" alt="" width="150px" height="100px">
+                </td>
+
+            </tr>
+        }
+    </tbody>
 </table>

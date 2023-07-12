@@ -76,7 +76,7 @@ namespace MVCOBL.Controllers
 
 
 
-            var listarProducto = _context.Productos.ToList();
+            var listarProducto = _context.Productos.Include(p => p.IdCategoriaNavigation).ToList();
             return View(listarProducto);
         }
 
