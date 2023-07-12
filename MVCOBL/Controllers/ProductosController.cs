@@ -37,14 +37,8 @@ namespace MVCOBL.Controllers
 
             API_COT cotizacion = new API_COT();
             
-
-
-
             var ultimaCotizacion = _context.Cotizaciones.OrderBy(x => x).LastOrDefault();        //Consultamos la ultima cotizacion que tengamos en la base
             DateTime fechaActual = DateTime.Today;
-
-
-
 
 
             if (ultimaCotizacion.Fecha != fechaActual)
@@ -67,17 +61,24 @@ namespace MVCOBL.Controllers
 
             }
 
-            
-
-
-
 
             //------------------------------------* API *-------------------------------------------------------
 
+           
 
+            var categorias = _context.Categoria.ToList();
+            var productos = _context.Productos.ToList();
 
-            var listarProducto = _context.Productos.Include(p => p.IdCategoriaNavigation).ToList();
-            return View(listarProducto);
+            var nombreCategorias = productos
+                .Join(categorias, categorias => categorias.IdCategoria, usuario => usuario.IdCategoria, (categorias, usuario) => new { categorias, usuario })
+                .Select(x => new { x.categorias.IdCategoria, x.usuario.Descripcion })
+                .ToList();
+
+            var combinada =  nombreCategorias.Zip(productos, (cate, prod) => (prod.IdProducto, prod.Codigo, prod.Nombre, prod.Descripcion, cate.Descripcion, prod.FechaRegistro, prod.Stock, prod.Precio, prod.ImagenUrl, prod.IdCotizacion, prod.Moneda));
+
+            ViewBag.combinada = combinada;
+
+            return View();
         }
 
         // GET: Productos/Details/5

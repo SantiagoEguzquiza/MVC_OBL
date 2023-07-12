@@ -11,75 +11,56 @@
 <table class="table">
     <thead>
         <tr>
-            @*<th>
-            @Html.DisplayNameFor(model => model.IdProducto)
-            </th>*@
-            @*<th>
-            @Html.DisplayNameFor(model => model.Codigo)
-            </th>*@
+           
             <th>
-                @Html.DisplayNameFor(model => model.Nombre)
+                Nombre
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Descripcion)
-            </th>
-            @*			<th>
-            @Html.DisplayNameFor(model => model.FechaRegistro)
-            </th>*@
-            <th>
-                @Html.DisplayNameFor(model => model.Stock)
+                Descripcion
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Precio)
+                Stock
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Moneda)
+                Precio
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdCategoriaNavigation)
+                Moneda
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ImagenUrl)
+                Categoria
+            </th>
+            <th>
+                Imagen
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var item in ViewBag.combinada)
         {
             <tr>
-                @*<th scope="row">
-
-            </th>*@
-                @*	<td>
-            @Html.DisplayFor(modelItem => item.IdProducto)
-            </td>*@
-                @*  <td>
-            @Html.DisplayFor(modelItem => item.Codigo)
-            </td>*@
+              
                 <td>
-                    @Html.DisplayFor(modelItem => item.Nombre)
+                   @item.Item3
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Descripcion)
-                </td>
-                @*				<td>
-            @Html.DisplayFor(modelItem => item.FechaRegistro)
-            </td>*@
+                    @item.Item4
+                </td>          
                 <td>
-                    @Html.DisplayFor(modelItem => item.Stock)
+                    @item.Item7
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Precio)
+                    @item.Rest.Item1
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Moneda)
+                    @item.Rest.Item4
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.IdCategoriaNavigation.IdCategoria)
+                    @item.Item5
                 </td>
                 <td>
-                    <img src="~/imagenes/@item.ImagenUrl" alt="" width="150px" height="100px">
+                    <img src="~/imagenes/@item.Rest.Item2" alt="" width="150px" height="100px">
                 </td>
 
             </tr>
