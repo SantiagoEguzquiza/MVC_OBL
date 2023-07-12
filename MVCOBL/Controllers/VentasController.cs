@@ -62,6 +62,7 @@ namespace MVCOBL.Controllers
                                   .Zip(nombreSucursales, (ventausercliente, sucursal) => (ventausercliente.UserName, ventausercliente.Nombre, sucursal.Nombre, ventausercliente.FechaRegistro, ventausercliente.IdVenta));
 
             ViewBag.combinada = resultado;
+           
 
 
 
@@ -280,6 +281,14 @@ namespace MVCOBL.Controllers
 
             ViewBag.combinada = resultado;
 
+            var datos = resultado.Where( x => x.IdVenta == id).FirstOrDefault();
+
+            ViewBag.Usuario = datos.UserName;
+            ViewBag.Fecha = datos.FechaRegistro;
+            ViewBag.Cliente = datos.Item2;
+            ViewBag.Sucursal = datos.Item3;
+            ViewBag.Factura = datos.IdVenta;
+
 
             //------------------------------------------------------------------------------------
 
@@ -288,6 +297,20 @@ namespace MVCOBL.Controllers
 
             var Venta = _context.Venta.Where(x => x.IdVenta == id).FirstOrDefault();
             var ListaDetalle = _context.DetalleVenta.Where(x => x.IdVenta == id).ToList();
+
+
+            var productos = _context.Productos.ToList();
+
+            var nombreProducto = ListaDetalle
+                .Join(productos, productos => productos.IdProducto, detalle => detalle.IdProducto, (productos, detalle) => new { productos, detalle })
+                .Select(x => new { x.productos.IdProducto, x.detalle.Nombre })
+                .ToList();
+
+            var combinada = ListaDetalle.Zip(nombreProducto, (deta, prod) => (prod.Nombre, deta.Cantidad, deta.PrecioUnidad, deta.Moneda, deta.ImporteTotal));
+
+            ViewBag.combinada2 = combinada;
+
+
 
             TimeSpan newTime = new TimeSpan(0, 0, 0);
             var ultimaFecha = Venta.FechaRegistro;
@@ -299,9 +322,9 @@ namespace MVCOBL.Controllers
 
             decimal? aux = 0;
 
-            foreach (var venta in ListaDetalle)
+            foreach (var venta in combinada)
             {
-                aux += venta.ImporteTotal;
+               aux += venta.ImporteTotal;
             }
 
             ViewBag.Venta = Venta;
