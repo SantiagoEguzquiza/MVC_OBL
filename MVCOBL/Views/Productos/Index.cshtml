@@ -1,86 +1,93 @@
 ﻿@model IEnumerable<MVCOBL.Models.Producto>
 
 @{
-	ViewData["Title"] = "Index";
+    ViewData["Title"] = "Index";
 }
 
 <h1>Productos</h1>
 @if (User.IsInRole("Admin"))
 {
-	<p>
-		<a asp-action="Create" class="btn btn-primary">Agregar producto</a>
-	</p>
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Agregar producto</a>
+    </p>
 }
 <table class="table">
-	<thead>
-		<tr>
-			<th>
-				@Html.DisplayNameFor(model => model.IdProducto)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.Nombre)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.Descripcion)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.Stock)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.Precio)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.Moneda)
-			</th>
-			<th>
-				Categoria
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.ImagenUrl)
-			</th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-		@foreach (var item in Model)
-		{
-			<tr>
-				<td>
-					@Html.DisplayFor(modelItem => item.IdProducto)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Nombre)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Descripcion)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Stock)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Precio)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Moneda)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.IdCategoriaNavigation.IdCategoria)
-				</td>
-				<td>
-					<img src="~/imagenes/@item.ImagenUrl" alt="" width="150px" height="100px">
-				</td>
-				<td>
-					@if (User.IsInRole("Admin"))
-					{
-						<a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.IdProducto">Editar</a>
-					}
-					<a asp-action="Details" class="btn btn-primary" asp-route-id="@item.IdProducto">Detalles</a>
-					@if (User.IsInRole("Admin"))
-					{
-						<a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.IdProducto">Borrar</a>
-					}
-				</td>
-			</tr>
-		}
-	</tbody>
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Descripcion
+            </th>
+            <th>
+                Stock
+            </th>
+            <th>
+                Precio
+            </th>
+            <th>
+                Moneda
+            </th>
+            <th>
+                Categoria
+            </th>
+            <th>
+                Imagen
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+
+
+        @foreach (var items in ViewBag.combinada)
+        {
+            <tr>
+                <td>
+                    @items.Item1
+                </td>
+                <td>
+                    @items.Item3
+                </td>
+                <td>
+                    @items.Item4
+                </td>
+                <td>
+                    @items.Item7
+                </td>
+                <td>
+                    @items.Rest.Item1
+                </td>
+                <td>
+                    @items.Rest.Item4
+                </td>
+                <td>
+                    @items.Item5
+                </td>
+                <td>
+                    <img src="~/imagenes/@items.Rest.Item2" alt="" width="150px" height="100px">
+                </td>
+                <td>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a asp-action="Edit" class="btn btn-warning" asp-route-id="@items.Item1">Editar</a>
+                    }
+                    <a asp-action="Details" class="btn btn-primary" asp-route-id="@items.Item1">Detalles</a>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a asp-action="Delete" class="btn btn-danger" asp-route-id="@items.Item1">Borrar</a>
+                    }
+                </td>
+
+            </tr>
+        }
+
+
+
+    </tbody>
 </table>
