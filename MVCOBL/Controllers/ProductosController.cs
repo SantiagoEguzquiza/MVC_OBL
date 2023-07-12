@@ -43,10 +43,12 @@ namespace MVCOBL.Controllers
             DateTime fechaActual = DateTime.Now;
 
             DateTime fechaHoy = DateTime.Today;
+            DateTime ultimaCot = DateTime.Today;
 
-            DateTime? ultimaCot = DateTime.Today;
+            TimeSpan newTime = new TimeSpan(0, 0, 0);
+
             ultimaCot = ultimaCotizacion.Fecha;
-
+            ultimaCot = ultimaCot.Date + newTime;
 
 
 

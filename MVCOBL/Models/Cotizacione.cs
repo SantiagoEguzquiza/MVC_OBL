@@ -13,7 +13,7 @@ namespace MVCOBL.Models
         public int Id { get; set; }
         public string? TipoMoneda { get; set; }
         public decimal? ValorMoneda { get; set; }
-        public DateTime? Fecha { get; set; }
+        public DateTime Fecha { get; set; }
 
         public virtual ICollection<Producto> Productos { get; set; }
     }
