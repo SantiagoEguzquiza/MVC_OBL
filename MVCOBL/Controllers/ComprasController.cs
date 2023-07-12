@@ -27,22 +27,30 @@ namespace MVCOBL.Controllers
             var ventas = _context.Compras.ToList();
             var Clientes = _context.Clientes.ToList();
             var Usuarios = _context.AspNetUsers.ToList();
+			var Sucursales = _context.Tienda.ToList();
 
-            var nombreUsuarios = ventas
+			var nombreUsuarios = ventas
                 .Join(Usuarios, venta => venta.IdUsuario, usuario => usuario.Id, (venta, usuario) => new { venta, usuario })
                 .Select(x => new { x.venta.IdUsuario, x.usuario.UserName })
                 .ToList();
 
+			var nombreSucursales = ventas
+				.Join(Sucursales, venta => venta.IdTienda, x => x.IdTienda, (venta, x) => new { venta, x })
+				.Select(x => new { x.venta.IdTienda, x.x.Nombre })
+				.ToList();
 
-            ViewBag.nombreUser = nombreUsuarios;
+
+			ViewBag.nombreUser = nombreUsuarios;
             ViewBag.venta = ventas;
 
             //Esta es una lista combinada 
-            var combinada = nombreUsuarios.Zip(ventas, (usuario, venta) => new { Nombre = usuario.UserName, Fecha = venta.FechaRegistro, Sucursal = venta.IdTienda, IdVenta = venta.IdCompra });
+            var combinada = nombreUsuarios.Zip(ventas, (usuario, venta) => new { Nombre = usuario.UserName, Fecha = venta.FechaRegistro, Sucursal = venta.IdTienda, IdVenta = venta.IdCompra })
+                                           .Zip(nombreSucursales, (ventauser, cliente) => (ventauser.Nombre, cliente.Nombre, ventauser.Fecha, ventauser.IdVenta, ventauser.Fecha));
 
 
 
-            ViewBag.combinada = combinada;
+
+			ViewBag.combinada = combinada;
 
 
             var mVCOBLContext = _context.Compras.Include(c => c.IdTiendaNavigation).Include(c => c.IdUsuarioNavigation);
