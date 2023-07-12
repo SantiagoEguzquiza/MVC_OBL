@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MVCOBL.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Drawing;
 
 namespace MVCOBL.Controllers
 {
@@ -88,19 +89,34 @@ namespace MVCOBL.Controllers
         {
             if (ModelState.IsValid)
             {
+                var ultimaCotizacion = _context.Cotizaciones.OrderBy(x => x).LastOrDefault();
+                decimal cotizacion = Convert.ToDecimal(ultimaCotizacion.ValorMoneda);
+
+
                 var idProducto = detalleCompra.IdProducto;
                 var Prod = _context.Productos.Where(l => l.IdProducto == idProducto).ToList().FirstOrDefault();
                 var precioPrd = Prod.Precio;
 
                 detalleCompra.PrecioUnitarioCompra = precioPrd;
+                detalleCompra.Moneda = Prod.Moneda;
 
-                var cantidad = detalleCompra.Cantidad;
+                var cantidad = Convert.ToDecimal(detalleCompra.Cantidad); 
+                decimal total = 0;
+                var precioEnDecimal = Convert.ToDecimal(precioPrd);
 
-                var total = cantidad * precioPrd;
-
+                if (Prod.Moneda == "UYU")
+                {
+                    total = cantidad * precioEnDecimal;
+                }
+                else
+                {
+                    precioEnDecimal *= cotizacion;
+                    total = cantidad * precioEnDecimal;
+                }
+           
                 detalleCompra.TotalCosto = total;
 
-                Prod.Stock += cantidad;
+                Prod.Stock += (int)cantidad;
 
                 _context.Add(detalleCompra);
                 await _context.SaveChangesAsync();

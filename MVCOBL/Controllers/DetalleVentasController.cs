@@ -88,18 +88,35 @@ namespace MVCOBL.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                var ultimaCotizacion = _context.Cotizaciones.OrderBy(x => x).LastOrDefault();
+                decimal cotizacion = Convert.ToDecimal(ultimaCotizacion.ValorMoneda);
+
                 var idProducto = detalleVentum.IdProducto;
                 var Prod = _context.Productos.Where(l => l.IdProducto == idProducto).ToList().FirstOrDefault();
                 var precioPrd = Prod.Precio;
+
                 detalleVentum.PrecioUnidad = precioPrd;
+                detalleVentum.Moneda = Prod.Moneda;
 
-                var cantidad = detalleVentum.Cantidad;
 
-                var total = cantidad * precioPrd;
+                var cantidad = Convert.ToDecimal(detalleVentum.Cantidad);
+                decimal total = 0;
+                var precioEnDecimal = Convert.ToDecimal(precioPrd);
+
+                if (Prod.Moneda == "UYU")
+                {
+                    total = cantidad * precioEnDecimal;
+                }
+                else
+                {
+                    precioEnDecimal *= cotizacion;
+                    total = cantidad * precioEnDecimal;
+                }              
 
                 detalleVentum.ImporteTotal = total;
 
-				Prod.Stock -= cantidad;
+				Prod.Stock -= (int)cantidad;
 
 				_context.Add(detalleVentum);
                 await _context.SaveChangesAsync();

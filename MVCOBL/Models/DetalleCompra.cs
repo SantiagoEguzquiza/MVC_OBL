@@ -13,6 +13,7 @@ namespace MVCOBL.Models
         public decimal? TotalCosto { get; set; }
         public DateTime? FechaRegistro { get; set; }
         public int? IdCotizacion { get; set; }
+        public string? Moneda { get; set; }
 
         public virtual Compra? IdCompraNavigation { get; set; }
         public virtual Producto? IdProductoNavigation { get; set; }

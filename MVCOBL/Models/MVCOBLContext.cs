@@ -235,6 +235,10 @@ namespace MVCOBL.Models
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
+                entity.Property(e => e.Moneda)
+                    .HasMaxLength(40)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.PrecioUnitarioCompra).HasColumnType("decimal(18, 2)");
 
                 entity.Property(e => e.TotalCosto).HasColumnType("decimal(18, 2)");
@@ -262,6 +266,10 @@ namespace MVCOBL.Models
                     .HasDefaultValueSql("(getdate())");
 
                 entity.Property(e => e.ImporteTotal).HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.Moneda)
+                    .HasMaxLength(40)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.PrecioUnidad).HasColumnType("decimal(18, 2)");
 
