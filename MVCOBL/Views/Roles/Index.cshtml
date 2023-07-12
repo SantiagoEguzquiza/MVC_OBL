@@ -17,12 +17,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
-        @*    <th>
-                @Html.DisplayNameFor(model => model.NormalizedName)
-            </th>*@
-            @*<th>
-                @Html.DisplayNameFor(model => model.ConcurrencyStamp)
-            </th>*@
             <th></th>
         </tr>
     </thead>
@@ -32,12 +26,6 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
-     @*       <td>
-                @Html.DisplayFor(modelItem => item.NormalizedName)
-            </td>*@
-          @*  <td>
-                @Html.DisplayFor(modelItem => item.ConcurrencyStamp)
-            </td>*@
             <td>
                     @if (User.IsInRole("Admin"))
                     {

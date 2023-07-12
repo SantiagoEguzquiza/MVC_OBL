@@ -27,8 +27,7 @@ namespace MVCOBL.Controllers
         {
             var mVCOBLContext = _context.Productos.Include(p => p.IdCategoriaNavigation).Include(p => p.IdCotizacionNavigation);
             return View(await mVCOBLContext.ToListAsync());
-            //var listarProducto = _context.Productos.ToList();
-            //return View(listarProducto);
+
         }
         public IActionResult Catalogo()
         {
@@ -101,20 +100,7 @@ namespace MVCOBL.Controllers
 
             return View(producto);
         }
-        //public IActionResult Registro()
-        //{
-        //	return View();
-        //}
-        //public IActionResult Registrar(Producto prod)
-        //{
-        //	if (ModelState.IsValid)
-        //	{
-        //		_context.Add(prod);
-        //		_context.SaveChanges();
-        //		return RedirectToAction(nameof(Index));
-        //	}
-        //	return View(prod);
-        //}
+
 
         // GET: Productos/Create
         [Authorize(Roles = "Admin")]

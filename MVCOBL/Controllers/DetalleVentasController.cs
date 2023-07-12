@@ -51,13 +51,7 @@ namespace MVCOBL.Controllers
 
         // GET: DetalleVentas/Create
         [Authorize(Roles = "Admin, Empleado")]
-        //public IActionResult Create()
-        //      {
-        //          ViewData["IdCotizacion"] = new SelectList(_context.Cotizaciones, "Id", "Id");
-        //          ViewData["IdProducto"] = new SelectList(_context.Productos, "IdProducto", "IdProducto");
-        //          ViewData["IdVenta"] = new SelectList(_context.Venta, "IdVenta", "IdVenta");
-        //          return View();
-        //      }
+
 
         public IActionResult Create(int valor)
         {

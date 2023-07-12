@@ -27,15 +27,6 @@
 									<li class="nav-item">
 										<a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Index">Usuarios</a>
 									</li>
-									@*      <li class="nav-item">
-								<a class="nav-link text-dark" asp-area="" asp-controller="UsuarioClaims" asp-action="Index">UsuarioClaims</a>
-								</li>
-								<li class="nav-item">
-								<a class="nav-link text-dark" asp-area="" asp-controller="UsuarioLogin" asp-action="Index">Login usuarios</a>
-								</li>
-								<li class="nav-item">
-								<a class="nav-link text-dark" asp-area="" asp-controller="UsuarioTokens" asp-action="Index">Tokens usuario</a>
-								</li>*@
 								</ul>
 							</li>
 
@@ -45,9 +36,6 @@
 									<li class="nav-item">
 										<a class="nav-link text-dark" asp-area="" asp-controller="Roles" asp-action="Index">Roles</a>
 									</li>
-									@*<li class="nav-item">
-										<a class="nav-link text-dark" asp-area="" asp-controller="RoleClaims" asp-action="Index">Role claims</a>
-									</li>*@
 								</ul>
 							</li>
 
@@ -57,21 +45,12 @@
 									<li class="nav-item">
 										<a class="nav-link text-dark" asp-area="" asp-controller="Categoria" asp-action="Index">Categoria</a>
 									</li>
-								 @*  	<li class="nav-item">
-										<a class="nav-link text-dark" asp-area="" asp-controller="Productos" asp-action="Index">Productos</a>
-									</li>*@
-									@*<li class="nav-item">
-										<a class="nav-link text-dark" asp-area="" asp-controller="Productos" asp-action="Registrar">Agregar producto</a>
-									</li>*@
 									<li class="nav-item">
 										<a class="nav-link text-dark" asp-area="" asp-controller="Productos" asp-action="Index">Agregar productos</a>
 									</li>
 									<li class="nav-item">
 										<a class="nav-link text-dark" asp-area="" asp-controller="ProductoTienda" asp-action="Index">Producto tienda</a>
 									</li>
-									@*<li class="nav-item">
-										<a class="nav-link text-dark" asp-area="" asp-controller="ProductoImagenes" asp-action="Index">Producto imagenes</a>
-									</li>*@
 								</ul>
 							</li>
 
@@ -111,82 +90,9 @@
 								</ul>
 							</li>
 
-						@*	<li class="nav-item">
-								<a href="#">Control facturas</a>
-								<ul style="--cantidad-items: 2">
-									<li class="nav-item">
-										<a class="nav-link text-dark" asp-area="" asp-controller="Facturas" asp-action="Index">Facturas</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link text-dark" asp-area="" asp-controller="LineasFactura" asp-action="Index">Lineas factura</a>
-									</li>
-								</ul>
-							</li>*@
+
 						}
-					@*	else
-						{
-							<li class="nav-item">
-								<a class="nav-link text-dark" asp-area="" asp-controller="Productos" asp-action="Catalogo">Catalogo de productos</a>
-							</li>
-						}*@
-						@*
-						<li class="nav-item">
-						<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-						</li>
-						<li class="nav-item">
-						<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-						</li>
-						<li class="nav-item">
-						<a class="nav-link text-dark" asp-area="" asp-controller="Roles" asp-action="Index">Roles</a>
-						</li>
-						<li class="nav-item">
-						<a class="nav-link text-dark" asp-area="" asp-controller="RoleClaims" asp-action="Index">Role claims</a>
-						</li>
-						<li class="nav-item">
-						<a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Index">Usuarios</a>
-						</li>
-						<li class="nav-item">
-						<a class="nav-link text-dark" asp-area="" asp-controller="UsuarioClaims" asp-action="Index">UsuarioClaims</a>
-						</li>
-						<li class="nav-item">
-						<a class="nav-link text-dark" asp-area="" asp-controller="UsuarioLogin" asp-action="Index">Login usuarios</a>
-						</li>
-						<li class="nav-item">
-						<a class="nav-link text-dark" asp-area="" asp-controller="UsuarioTokens" asp-action="Index">Tokens usuario</a>
-						</li>
-						<li class="nav-item">
-						<a class="nav-link text-dark" asp-area="" asp-controller="Categoria" asp-action="Index">Categoria</a>
-						</li>
-						<li class="nav-item">
-						<a class="nav-link text-dark" asp-area="" asp-controller="Clientes" asp-action="Index">Clientes</a>
-						</li>
-						<li class="nav-item">
-						<a class="nav-link text-dark" asp-area="" asp-controller="Compras" asp-action="Index">Compras</a>
-						</li>
-						<li class="nav-item">
-						<a class="nav-link text-dark" asp-area="" asp-controller="Cotizaciones" asp-action="Index">Cotizaciones</a>
-						</li>
-						<li class="nav-item">
-						<a class="nav-link text-dark" asp-area="" asp-controller="DetalleCompras" asp-action="Index">Detalle compras</a>
-						</li>
-						<li class="nav-item">
-						<a class="nav-link text-dark" asp-area="" asp-controller="DetalleVentas" asp-action="Index">Detalle ventas</a>
-						</li>
-						<li class="nav-item">
-						<a class="nav-link text-dark" asp-area="" asp-controller="Productos" asp-action="Index">Productos</a>
-						</li>
-						<li class="nav-item">
-						<a class="nav-link text-dark" asp-area="" asp-controller="ProductoImagenes" asp-action="Index">Producto imagenes</a>
-						</li>
-						<li class="nav-item">
-						<a class="nav-link text-dark" asp-area="" asp-controller="ProductoTienda" asp-action="Index">Producto tienda</a>
-						</li>
-						<li class="nav-item">
-						<a class="nav-link text-dark" asp-area="" asp-controller="Tienda" asp-action="Index">Tienda</a>
-						</li>
-						<li class="nav-item">
-						<a class="nav-link text-dark" asp-area="" asp-controller="Ventas" asp-action="Index">Ventas</a>
-						</li>*@
+
 					</ul>
 					<partial name="_LoginPartial" />
 				</div>
@@ -199,11 +105,7 @@
 		</main>
 	</div>
 
-	@*<footer class="border-top footer text-muted">
-		<div class="container">
-			&copy; 2023 - MVCOBL - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-		</div>
-	</footer>*@
+
 	<script src="~/lib/jquery/dist/jquery.min.js"></script>
 	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="~/js/site.js" asp-append-version="true"></script>
