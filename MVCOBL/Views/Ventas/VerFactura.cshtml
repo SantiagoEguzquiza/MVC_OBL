@@ -2,7 +2,34 @@
     ViewData["Title"] = "VerFactura";
 }
 
-<h1>Ver Factura</h1>
+<head>
+
+    <link rel="stylesheet" href="~/css/Facturas.css" asp-append-version="true" />
+
+</head>
+
+
+<div class="contenedor">
+
+    <div class="titulo">
+        <h1>Factura</h1>
+    </div>
+
+    <div style="margin-top: 10px;padding: 5px">
+        <table id="tablax" class="table table-striped table-bordered" style="width:15vh">
+            <tr>
+                <th>
+                    Cotizacion USD
+                </th>
+            </tr>
+            <tr>
+                <td class="tdcoti">
+                    @ViewBag.Cotizacion
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
 
 
 

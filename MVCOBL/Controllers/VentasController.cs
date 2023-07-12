@@ -248,8 +248,11 @@ namespace MVCOBL.Controllers
         public IActionResult VerFactura(int id)
 
         {
+            var cotizacion = _context.Cotizaciones.OrderBy(x => x).LastOrDefault();
             var Venta = _context.Venta.Where(x => x.IdVenta == id).ToList();
             var ListaDetalle = _context.DetalleVenta.Where(x => x.IdVenta == id).ToList();
+
+
 
             decimal? aux = 0;
 
@@ -261,6 +264,7 @@ namespace MVCOBL.Controllers
             ViewBag.Venta = Venta;
             ViewBag.ListaDetalle = ListaDetalle;
             ViewBag.Total = aux;
+            ViewBag.Cotizacion = cotizacion.ValorMoneda;
 
 
             return View();

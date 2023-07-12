@@ -23,7 +23,7 @@ namespace MVCOBL.Controllers
         [Authorize]
         public async Task<IActionResult> Index()
         {
-
+            
             var ventas = _context.Compras.ToList();
             var Clientes = _context.Clientes.ToList();
             var Usuarios = _context.AspNetUsers.ToList();
@@ -39,9 +39,7 @@ namespace MVCOBL.Controllers
 				.Select(x => new { x.venta.IdTienda, x.x.Nombre })
 				.ToList();
 
-
-			ViewBag.nombreUser = nombreUsuarios;
-            ViewBag.venta = ventas;
+          
 
             //Esta es una lista combinada 
             var combinada = nombreUsuarios.Zip(ventas, (usuario, venta) => new { Nombre = usuario.UserName, Fecha = venta.FechaRegistro, Sucursal = venta.IdTienda, IdVenta = venta.IdCompra })
@@ -221,8 +219,11 @@ namespace MVCOBL.Controllers
         public IActionResult VerFactura(int id)
 
         {
+            var cotizacion = _context.Cotizaciones.OrderBy(x => x).LastOrDefault();
             var Venta = _context.Compras.Where(x => x.IdCompra == id).ToList();
             var ListaDetalle = _context.DetalleCompras.Where(x => x.IdCompra == id).ToList();
+
+            
 
             decimal? aux = 0;
             
@@ -235,6 +236,7 @@ namespace MVCOBL.Controllers
             ViewBag.Compra = Venta;
             ViewBag.ListaDetalleCompra = ListaDetalle;
             ViewBag.TotalCompra = aux;
+            ViewBag.Cotizacion = cotizacion.ValorMoneda;
 
 
             return View();
