@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\pipi2\\OneDrive\\Escritorio\\Programacion lll\\MVC_OBL\\MVCOBL\\wwwroot\\imagenes\\Canon.jpg",
+      "PackagePath": "staticwebassets\\imagenes\\Canon.jpg"
+    },
+    {
       "Id": "C:\\Users\\pipi2\\OneDrive\\Escritorio\\Programacion lll\\MVC_OBL\\MVCOBL\\wwwroot\\imagenes\\HpVictus.jpg",
       "PackagePath": "staticwebassets\\imagenes\\HpVictus.jpg"
     },
@@ -27,6 +31,14 @@
     {
       "Id": "C:\\Users\\pipi2\\OneDrive\\Escritorio\\Programacion lll\\MVC_OBL\\MVCOBL\\wwwroot\\imagenes\\LogitechG502.jpg",
       "PackagePath": "staticwebassets\\imagenes\\LogitechG502.jpg"
+    },
+    {
+      "Id": "C:\\Users\\pipi2\\OneDrive\\Escritorio\\Programacion lll\\MVC_OBL\\MVCOBL\\wwwroot\\imagenes\\Mouse.jpg",
+      "PackagePath": "staticwebassets\\imagenes\\Mouse.jpg"
+    },
+    {
+      "Id": "C:\\Users\\pipi2\\OneDrive\\Escritorio\\Programacion lll\\MVC_OBL\\MVCOBL\\wwwroot\\imagenes\\Teclado.jpg",
+      "PackagePath": "staticwebassets\\imagenes\\Teclado.jpg"
     },
     {
       "Id": "C:\\Users\\pipi2\\OneDrive\\Escritorio\\Programacion lll\\MVC_OBL\\MVCOBL\\wwwroot\\js\\app.js",

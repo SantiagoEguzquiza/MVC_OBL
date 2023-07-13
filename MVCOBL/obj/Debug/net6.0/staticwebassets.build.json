@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "6BJ1J6/UKwA5IbmDAAdhIdzcNZcMDJN1Ezc3LQFuoKE=",
+  "Hash": "R8ujh/Jkpe7jdbge0xu7Pfw1jPE4D+ag8rLhzjSrb+M=",
   "Source": "MVCOBL",
   "BasePath": "_content/MVCOBL",
   "Mode": "Default",
@@ -1122,6 +1122,23 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+      "Identity": "C:\\Users\\pipi2\\OneDrive\\Escritorio\\Programacion lll\\MVC_OBL\\MVCOBL\\wwwroot\\imagenes\\Canon.jpg",
+      "SourceId": "MVCOBL",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pipi2\\OneDrive\\Escritorio\\Programacion lll\\MVC_OBL\\MVCOBL\\wwwroot\\",
+      "BasePath": "_content/MVCOBL",
+      "RelativePath": "imagenes/Canon.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imagenes\\Canon.jpg"
+    },
+    {
       "Identity": "C:\\Users\\pipi2\\OneDrive\\Escritorio\\Programacion lll\\MVC_OBL\\MVCOBL\\wwwroot\\imagenes\\HpVictus.jpg",
       "SourceId": "MVCOBL",
       "SourceType": "Discovered",
@@ -1171,6 +1188,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\imagenes\\LogitechG502.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\pipi2\\OneDrive\\Escritorio\\Programacion lll\\MVC_OBL\\MVCOBL\\wwwroot\\imagenes\\Mouse.jpg",
+      "SourceId": "MVCOBL",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pipi2\\OneDrive\\Escritorio\\Programacion lll\\MVC_OBL\\MVCOBL\\wwwroot\\",
+      "BasePath": "_content/MVCOBL",
+      "RelativePath": "imagenes/Mouse.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imagenes\\Mouse.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\pipi2\\OneDrive\\Escritorio\\Programacion lll\\MVC_OBL\\MVCOBL\\wwwroot\\imagenes\\Teclado.jpg",
+      "SourceId": "MVCOBL",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pipi2\\OneDrive\\Escritorio\\Programacion lll\\MVC_OBL\\MVCOBL\\wwwroot\\",
+      "BasePath": "_content/MVCOBL",
+      "RelativePath": "imagenes/Teclado.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imagenes\\Teclado.jpg"
     },
     {
       "Identity": "C:\\Users\\pipi2\\OneDrive\\Escritorio\\Programacion lll\\MVC_OBL\\MVCOBL\\wwwroot\\js\\app.js",
